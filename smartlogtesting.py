@@ -661,25 +661,26 @@ elif option == "Core Cost Estimate":
     uploaded_file = st.file_uploader("Upload Core Cost Excel", type=["xlsx"])
     
     if uploaded_file:
-        # Read Excel (header row is 3rd row, zero-indexed)
+        # Read Excel (header starts at row 3 -> index 2)
         df = pd.read_excel(uploaded_file, header=2)
-        
+    
         # Clean column names
         df.columns = df.columns.str.strip().str.replace("\n", " ").str.upper()
-        
-        # Column names
-        col_a = df.columns[0]  # Column A: I., II., etc
-        col_b = df.columns[1]  # Column B: Main Titles / Line item numbers
-        col_c = df.columns[2]  # Column C: Description
+    
+        # Column mapping
+        col_a = df.columns[0]  # Column A (I., II., 1., 2., etc.)
+        col_b = df.columns[1]  # Column B (Main titles / numbers)
+        col_c = df.columns[2]  # Column C (Descriptions)
         col_price = "PRICE PER UNIT (MYR)"
         col_qty = "QTY"
         col_total = "TOTAL CE"
     
+        # Ensure Description column exists & clean
         df = df.dropna(subset=[col_c], how="all")
     
-        # Main Title rows
+        # STEP 1 — Define Main Titles EXACTLY as provided (Excel rows are 0-indexed)
         main_titles_rows = {
-            3: "TRANSPORTATION",
+            3:  "TRANSPORTATION",
             14: "CORE PREPARATION AND STORAGE",
             58: "ROUTINE CORE ANALYSIS (RCA)",
             117: "SPECIAL CORE ANALYSIS (SCAL)",
@@ -689,37 +690,50 @@ elif option == "Core Cost Estimate":
             464: "DIGITAL CORE ANALYSIS (DCA)"
         }
     
-        # Build sections
+        st.subheader("Select Line Items")
+    
+        # STEP 2 — Build Sections (between Main Title rows)
         section_indices = sorted(main_titles_rows.keys())
         sections = {}
+    
         for i, row_idx in enumerate(section_indices):
             start = row_idx + 1
             end = section_indices[i + 1] if i + 1 < len(section_indices) else len(df)
             title = main_titles_rows[row_idx]
-            sections[title] = df.iloc[start:end]
+            section_df = df.iloc[start:end].copy()
+            sections[title] = section_df
     
-        st.subheader("Select Line Items")
         selected_items = []
     
+        # STEP 3 — Display each Section with checkboxes
         for title, section_df in sections.items():
             with st.expander(title):
-                # Show checkboxes for each line item
-                for _, row in section_df.iterrows():
+                for idx, row in section_df.iterrows():
                     label = f"{row[col_a]} - {row[col_c]}"
-                    if st.checkbox(label, key=f"{title}_{row[col_a]}"):
+                    key = f"{title}_{idx}"   # UNIQUE KEY (fixes StreamlitDuplicateElementKey)
+    
+                    if st.checkbox(label, key=key):
                         selected_items.append(row)
     
+        # STEP 4 — Build result table
         if selected_items:
             result_df = pd.DataFrame(selected_items)
-            # Compute cost estimate
-            result_df[col_total] = result_df[col_price] * result_df[col_qty]
-            st.subheader("Cost Estimate Table")
-            st.dataframe(result_df[[col_a, col_c, col_price, col_qty, col_total]])
-            
-            total_cost = result_df[col_total].sum()
-            st.markdown(f"**Total Cost Estimate (MYR): {total_cost:,.2f}**")
-        else:
-            st.info("Select at least one line item to see the cost estimate.")
     
+            # Compute total cost
+            result_df[col_total] = result_df[col_price] * result_df[col_qty]
+    
+            st.subheader("Cost Estimate Summary")
+    
+            st.dataframe(
+                result_df[[col_a, col_c, col_price, col_qty, col_total]]
+            )
+    
+            total_cost = result_df[col_total].sum()
+    
+            st.markdown(f"### **Total Cost Estimate (MYR): {total_cost:,.2f}**")
+    
+        else:
+            st.info("Select at least one line item to generate cost estimate.")
+
 
 
