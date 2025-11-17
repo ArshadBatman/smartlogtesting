@@ -657,7 +657,7 @@ elif option == "Core Cost Estimate":
     st.header("Core Cost Estimate Module")
     st.info("Core Cost Estimate functionality will be implemented here.")
     # Later, you can add your Core Cost Estimate workflow
-    # Step 1: Upload Excel
+    # Step 1: Upload Excel   
     uploaded_file = st.file_uploader("Upload Core Cost Excel", type=["xlsx"])
     
     if uploaded_file:
@@ -667,33 +667,46 @@ elif option == "Core Cost Estimate":
         # Clean column names
         df.columns = df.columns.str.strip().str.replace("\n", " ").str.upper()
         
-        # Columns mapping
-        col_main = df.columns[1]  # Column B: Main Titles / Line item numbers
-        col_desc = df.columns[2]  # Column C: Description
+        # Column names
+        col_a = df.columns[0]  # Column A: I., II., etc
+        col_b = df.columns[1]  # Column B: Main Titles / Line item numbers
+        col_c = df.columns[2]  # Column C: Description
         col_price = "PRICE PER UNIT (MYR)"
         col_qty = "QTY"
         col_total = "TOTAL CE"
     
-        df = df.dropna(subset=[col_desc], how="all")
+        df = df.dropna(subset=[col_c], how="all")
     
-        # Identify Main Titles
-        main_titles_idx = df[df[col_main].str.contains("I.|II.|III.|IV.|V.|VI.|VII.|VIII.", na=False)].index
+        # Main Title rows
+        main_titles_rows = {
+            3: "TRANSPORTATION",
+            14: "CORE PREPARATION AND STORAGE",
+            58: "ROUTINE CORE ANALYSIS (RCA)",
+            117: "SPECIAL CORE ANALYSIS (SCAL)",
+            310: "GEOLOGICAL ANALYSIS",
+            409: "ROCK MECHANICS STUDY",
+            450: "Completion Design & Production Enhancement",
+            464: "DIGITAL CORE ANALYSIS (DCA)"
+        }
+    
+        # Build sections
+        section_indices = sorted(main_titles_rows.keys())
         sections = {}
-        for i, idx in enumerate(main_titles_idx):
-            start = idx + 1
-            end = main_titles_idx[i + 1] if i + 1 < len(main_titles_idx) else len(df)
-            main_title = df.at[idx, col_desc]
-            sections[main_title] = df.iloc[start:end]
+        for i, row_idx in enumerate(section_indices):
+            start = row_idx + 1
+            end = section_indices[i + 1] if i + 1 < len(section_indices) else len(df)
+            title = main_titles_rows[row_idx]
+            sections[title] = df.iloc[start:end]
     
         st.subheader("Select Line Items")
         selected_items = []
     
         for title, section_df in sections.items():
             with st.expander(title):
-                # Line items: show checkboxes for each description
+                # Show checkboxes for each line item
                 for _, row in section_df.iterrows():
-                    label = f"{row[col_main]} - {row[col_desc]}"
-                    if st.checkbox(label, key=f"{title}_{row[col_main]}"):
+                    label = f"{row[col_a]} - {row[col_c]}"
+                    if st.checkbox(label, key=f"{title}_{row[col_a]}"):
                         selected_items.append(row)
     
         if selected_items:
@@ -701,13 +714,12 @@ elif option == "Core Cost Estimate":
             # Compute cost estimate
             result_df[col_total] = result_df[col_price] * result_df[col_qty]
             st.subheader("Cost Estimate Table")
-            st.dataframe(result_df[[col_main, col_desc, col_price, col_qty, col_total]])
+            st.dataframe(result_df[[col_a, col_c, col_price, col_qty, col_total]])
             
             total_cost = result_df[col_total].sum()
             st.markdown(f"**Total Cost Estimate (MYR): {total_cost:,.2f}**")
         else:
             st.info("Select at least one line item to see the cost estimate.")
-
-
+    
 
 
