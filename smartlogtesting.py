@@ -661,38 +661,49 @@ elif option == "Core Cost Estimate":
     uploaded_file = st.file_uploader("Upload Core Cost Excel", type=["xlsx"])
     
     if uploaded_file:
-        # Read Excel and handle messy headers
-        df = pd.read_excel(uploaded_file, header=2)  # Row 3 (0-indexed) is header
+        # Read Excel (header row is 3rd row, zero-indexed)
+        df = pd.read_excel(uploaded_file, header=2)
         
-        # Clean column names: remove spaces, newlines, and normalize case
+        # Clean column names
         df.columns = df.columns.str.strip().str.replace("\n", " ").str.upper()
         
-        # Map columns for convenience
-        col_desc = "DESCRIPTION"
+        # Columns mapping
+        col_main = df.columns[1]  # Column B: Main Titles / Line item numbers
+        col_desc = df.columns[2]  # Column C: Description
         col_price = "PRICE PER UNIT (MYR)"
         col_qty = "QTY"
         col_total = "TOTAL CE"
-        
-        # Drop rows where Description is empty
-        df = df.dropna(subset=[col_desc], how="all")
-        
-        # Extract Main Titles (like TRANSPORTATION, CORE PREPARATION, etc.)
-        main_titles = df.iloc[:, 1].dropna().unique()  # Column B contains main titles
-        main_titles = [str(title) for title in main_titles if not str(title).startswith(tuple("I.,II.,III.,IV.,V.,VI.,VII.,VIII."))]
     
-        # Let user select which line items they want
+        df = df.dropna(subset=[col_desc], how="all")
+    
+        # Identify Main Titles
+        main_titles_idx = df[df[col_main].str.contains("I.|II.|III.|IV.|V.|VI.|VII.|VIII.", na=False)].index
+        sections = {}
+        for i, idx in enumerate(main_titles_idx):
+            start = idx + 1
+            end = main_titles_idx[i + 1] if i + 1 < len(main_titles_idx) else len(df)
+            main_title = df.at[idx, col_desc]
+            sections[main_title] = df.iloc[start:end]
+    
         st.subheader("Select Line Items")
-        selected_titles = st.multiselect("Pick Main Titles", options=df[col_desc].unique())
-        
-        # Filter DataFrame for selected items
-        if selected_titles:
-            filtered_df = df[df[col_desc].isin(selected_titles)].copy()
-            # Compute Cost Estimate
-            filtered_df[col_total] = filtered_df[col_price] * filtered_df[col_qty]
+        selected_items = []
+    
+        for title, section_df in sections.items():
+            with st.expander(title):
+                # Line items: show checkboxes for each description
+                for _, row in section_df.iterrows():
+                    label = f"{row[col_main]} - {row[col_desc]}"
+                    if st.checkbox(label, key=f"{title}_{row[col_main]}"):
+                        selected_items.append(row)
+    
+        if selected_items:
+            result_df = pd.DataFrame(selected_items)
+            # Compute cost estimate
+            result_df[col_total] = result_df[col_price] * result_df[col_qty]
             st.subheader("Cost Estimate Table")
-            st.dataframe(filtered_df[[col_desc, col_price, col_qty, col_total]])
+            st.dataframe(result_df[[col_main, col_desc, col_price, col_qty, col_total]])
             
-            total_cost = filtered_df[col_total].sum()
+            total_cost = result_df[col_total].sum()
             st.markdown(f"**Total Cost Estimate (MYR): {total_cost:,.2f}**")
         else:
             st.info("Select at least one line item to see the cost estimate.")
