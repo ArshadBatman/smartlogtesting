@@ -1,444 +1,645 @@
-<!--# MlLtmFjDH4FB76nWm4q46tmpFDlLqVlFjjs7MQnd-->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html>
-<head>
-<meta name="description" content="Zscaler makes the internet safe for businesses by protecting their employees from malware, viruses, and other security threats.">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Internet Security by Zscaler</title>
-<script language="JavaScript">var defLang = 'en_US'</script>
-<!--PETRONAS-->
-<style type="text/css">
-body {
-background-color:#e3e3e3;
-font-family:Arial, sans-serif;
-font-size:12px;
-color:#4B4F54;
-}
-a {
-cursor:pointer;
-text-decoration:none;
-color:#009dd0;
-}
-table {
-margin-top:10px;
-}
-td table {
-margin-top:0;
-text-align:center;
-}
-img {
-max-height:75px;
-max-width:430px;
-}
-.pg {
-position:absolute;
-top:0;
-bottom:0;
-left:0;
-right:0;
-overflow-x:hidden;
-white-space:nowrap;
-}
-.pg:before {
-content:"";
-display:inline-block;
-height:100%;
-vertical-align:middle;
-}
-.pg_cont {
-display:inline-block;
-vertical-align:middle;
-width:100%;
-position:relative;
-}
-.a_i {
-width:19px;
-height:19px;
-margin-right:10px;
-background-size: 19px 19px;
-display:inline-block;
-}
-.m_tbl {
-width:100%;
-max-width:758px;
-background:#e3e3e3;
-min-width:600px;
-}
-.pg.red .eu_h {
-color:#fd4239;
-border-top:3px solid #fd4239;
-}
-.pg.red .eu_h .a_i {
-background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABoElEQVR4nK3Uz2vIYRzA8dcMzWGJdjSZKZLCDphfB7XVHBAXF2XFpJxd+BvUbtY20m4KxVExtbWkUYQLByU3OVhpy8zh+Tzr2dN3t30un1/P834+z/N8noc1lBZYPNVbx3twDQPYFuN+4RUm8ARL5YTWFzPWVZA2jGIWQ+jMC2ILzuERZrCjrmB9YW/CcxwLfwFTAf6J3TiPzTiMNziJz02wkQL0DpfwsVp8OCAb0IFnOIA5LG/zeEwWgN4GUBeeBihLN25mJ8NuhF7CIOYbQJPYHv59fAv7OlpL2OnQH2IbpexsAF3BePgdOFTC2kO/bQC9LED3AvTPymPoYuUFkHqprqizAF0NECwWY9vKynJi1yqg8QoEBwv7ewmbCt2HIw2goQrUgv6wF6QmXoY9KMqdLkBjDSDSueU3+Bi/S9gE3oedY2PS+6xBF3En7Hnczol8AX9xAa+xNWJHpXOajXwPzuBsAR7E1xoGX3BC6vJu7MVdzfIHl/GwDNa/xifsxy1xQ5XMSS2ypwax+n+Wc/ukr2YjfkhNXT81pP9sTeU/6YpejkX0NUMAAAAASUVORK5CYII=');
-}
-.pg.red .eu_h, .pg.red .eu_co, .pg.red .hr {
-border-left:3px solid #fd4239;
-border-right:3px solid #fd4239;
-}
-.pg.red .fo {
-border-bottom-color:#fd4239;
-}
-.pg.red .eu_co.st{
-border:0;
-}
-.pg.yl .eu_h .a_i {
-background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAFgUlEQVR4nO2dOWxcVRSGP0+wWWKSiC1WMAV7SAI0bBLBLBI0bEUSyiSAFCOgYLMpEBA3JCEUCISQEBIIKtIgpaCho6KhAglkCQlRRBAhKBIQW4Di5iHH+M28c+85955h7leO5y6eb972v/PuQKVSqQwNY5+8V3oKYi4C3gXuaPn7x8Bu4Eim+agxsxN6pSch5GrgM9plANx58j0bs8xImWESsho4BJzf4b1TwAfAGaYzMmCYhDyH7Ft/DTBvNBczhkXINPBkRLs54ALluZgyLEIWiNv9TAIvKM/FlGEQsoVw1hTLLHCFzlTsGQYh+0mb52nAS0pzMce7kNuBuxX62QbcpNCPOZ6F9ICXFfs7CIwp9meCZyE7gOsU+9sK3KfYnwlehUxgs9/fTzimuMWrkEeASwz63Qg8ZNCvGh6FrMX22mGBEMO4xKOQZ4FzDfufAp4y7D8Jb0KmgScyjDOP00jFm5AF4MwM47iNVDwJSY1IpLiMVDwJSY1IpLiMVLwIuQ2diESKu0jFgxDtiESKq0jFg5AdwPUFx3cVqZQWYhWRSHETqZQWYhWRSHETqZQUshZ4vuD4y3ERqZQUMg+cV3D85biIVEoJuZC4KhJrikcqpQ5kMRHJMeCosM16QkzSlSZSeVw4jholhGwGHhS2eR14Bvhd2O504BVkH/As8BqwKBxLhRK7LGlEcoI4GQC/AU8DfwvaFI1Ucgu5Fbgnol2MjIYTyK/Ei0UqOYWMEWIKKauA8YRxY+P8IpFKTiEpEclZCePGXltsBe5NGDeKXEJSI5KUm1YpMg+Q+cQnl5BZ4NKE9ikfakrb7JFKDiFrSL9dWkoIZI5UcgjRiEhK7bIgc6RiLWQDOv9MyS0EMkYq1kK0qkhKbiGQsUrFUshm9A6IJU57l5OlSsVSiGYVSektBDJFKlZCYiOSNkofQxrMIxULIWPoV5F4EQLGkYqFkO3ADcp9ethlNZhGKtpCJoB9yn2Cry0EDCMVbSGpEUkbKVuIxVW2WaSiKUQjImnD2xYCRpGKphDLKhJPx5AGk0hFS4hWRNKGxy0EDCIVLSHWD9p4FaIeqWgI2YT9PQOPu6yGWeByrc40hOR40MbrFgLKkUrqBzlDnvvO3k57l7MdpUglRUhsFUkMnreQBpVIJUWIRUTShudjSINKpBIrJPeDNlPEXeNcSZ7HrBuSI5XYxnuAy1IGFjIBfEVYk/f7jm2mgbvMZrQyTaTyVmwHMQsprwG+xtezHZ74jvBl/VnaMHYh5TmqjH4kRSpSIRsI1eSV/kRHKlIhe8l7kBxWoiMViZBNwMMxg4woUZGKRMg+4ftHnahIpetp7wzlVzv4CTgMHO/4/kngfmCd1YQ60EQqn3Zt0EWIRRWJlL+Am4Evhe22AJ/rT0fEQcIXutNjdV12QduAG1NmpMA3yGUAfAF8qzsVMaJIZZCQcWyqSKT8UaitFp0jlUFCckck/1c6V6n0E3I28KLKdCrQsUqln5A5uv28UKUbnSKVNiE1IrFhYKTSJmQv+W7sjBIDI5WVhFxFjUgs6RuprCQk93Kto0bfSGX5B38L5SOSUaC1SmWpkJxVJJWWKpWlQjxEJG2sJ24BmomTbT2yYqTSXM6P42O51jbWEQoHXqX7verVhHW2JCvK5eYA8BHwZ/NCI2QPivWpRuwm72L9OfhPlUqPGpGU5pRIpUeNSEpzSqTSo0YkHvj36bMeNSLxwCSwE+oVuScegCrEExdDFeKJVVCFeGIRqhBPHIYgRFw2X1HnGPA2BCEufllmxNkF/ABByCGClF9LzmhE+YVw/fFh80JzDHkHuBZ4k1BDW7HlR+ANwmf+/tI/LK2mWwQeBR4DzqHmW1YcJXzpJT+hUalUKpXKQP4B3AaeT/TFo6kAAAAASUVORK5CYII=');
-}
-.pg.yl .eu_h {
-color:#c2a200;
-border-top:3px solid #c2a200;
-}
-.pg.yl .eu_h, .pg.yl .eu_co, .pg.yl .hr {
-border-left:3px solid #c2a200;
-border-right:3px solid #c2a200;
-}
-.pg.yl .fo {
-border-bottom-color:#c2a200;
-}
-.pg.yl .eu_co.st{
-border:0;
-}
-.pg.or .eu_h {
-color:#e39e00;
-border-top:3px solid #e39e00;
-}
-.pg.or .eu_h .a_i {
-background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjIzMTRDODNCQ0ExMTFFNUFBNTY5RTA4NDFEMEU0QTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjIzMTRDODRCQ0ExMTFFNUFBNTY5RTA4NDFEMEU0QTAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMjMxNEM4MUJDQTExMUU1QUE1NjlFMDg0MUQwRTRBMCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMjMxNEM4MkJDQTExMUU1QUE1NjlFMDg0MUQwRTRBMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Poc8rmgAAAI2SURBVHjadJRdSFVBEMfvvRiGeP1IfdIKM3qQ/KQUtISCIBX8LEMFwcIPEBSEqPBREXwRQbIQS30wDUvDJEQQKkKI1C6hSQiBXB8Cw5CelPT2G5iF43Jc+DFzZmb/e87u7PGGQiGP29ga9nZgzsDbpPrQLM8X8OvgHHQR+27P8bqJMXFE3UYm7Vu5Ckw/lJBbduZ8LkJtmNtwzxaSQWwKI0zaOZ8lJM898I5JB57jxxNIpr7MGQyzis5DOOyoeAamCYrhBzyGGTAL3YQ3x4mZDcxF6CL2C5yAn1AAN6BeF/Q4RF33rEqtvNF9KIRYPjkFTuLnQDR0al0Wi54+cpoEIvHnIN9lb3phV2o1PwSnrLpKORgjJp9zCZZAjltWK3IUV2iPmQ3fhDHdpmaIkm3wIdSuQtdQv4z9oEcv/hq8JD6tn/YHGuAW/Cb+AHsWFqTOG3zu+YTTR+KVnuCqFPDsx/fjXwGJJWifrRCXE34K2Tx/1XkBOYANI6TjGUSSTCf+F9+vbzgoQlrTqu3zzTFvUsS2rc0cgF/yuQjGYwMquKFv0I1JhXarsbdFLEBBmOO67GGuQwy8hjTTRtTVYh/J3aRu1HqJoIhNkPhn3b917bUWuKvhYrV55Ftdrth70xrl0tUUTVh3tUZbwIxFavKtmmRMqfSfEZPjfQgR8BkOQYSu6pwXcsUgRXM92mtxkAnTLDJ+5H+G6B2M7Eu23tN5GKXwI7kY7bFqSJRy+bvoKQdl/n8BBgA1+diozP47HQAAAABJRU5ErkJggg==');
-}
-.pg.or .eu_h, .pg.or .eu_co, .pg.or .hr {
-border-left:3px solid #e39e00;
-border-right:3px solid #e39e00;
-}
-.pg.or .fo {
-border-bottom-color:#e39e00;
-}
-.pg.or .eu_co.st{
-border:0;
-}
-.m_tbl table td {
-padding:0 20px 16px 20px;
-text-align:left;
-background-color:white;
-}
-.m_tbl table td.bh {
-text-align:center;
-background-color:#e3e3e3;
-z-index:100;
-}
-.m_tbl table td.eu_h {
-padding-top: 20px;
-}
-.eu_h {
-vertical-align:middle;
-font-weight:normal;
-white-space:normal;
-font-size: 24px;
-background-color:white;
-border-left:3px solid;
-border-right:3px solid;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-}
-.pg .eu_h.sm {
-font-size:16px;
-color:#929496;
-border-top-left-radius:0;
-border-top-right-radius:0;
-border-top:0;
-padding-top:0;
-}
-hr {
-margin:0;
-border-top:0.5px solid #cfd0d1;
-}
-.eu_co {
-font-size:16px;
-color:#2a2c30;
-border-left:3px solid;
-border-right:3px solid;
-white-space: normal;
-word-wrap: break-word;
-}
-.eu_co.rsn{
-color:#000000;
-}
-.eu_l {
-display:inline;
-padding-left:5px;
-}
-.bh {
-min-height:35px;
-display:block;
-max-height:75px;
-color:#0076A9;
-font-size:16px;
-overflow:hidden;
-padding-bottom:15px;
-padding-top:5px;
-background-color:#e3e3e3;
-text-align:center;
-max-width:758px;
-text-overflow: ellipsis;
-}
-.btn {
-background:#009dd0;
-color:#FFFFFF;
-border-radius:5px;
-border:2px solid #009dd0;
-cursor:pointer;
-display:inline-block;
-height:30px;
-margin:10px 0 15px;
-font-size:18px;
-line-height:26px;
-width:auto;
-padding:0 20px;
-}
-.btn:focus {
-outline:none;
-}
-.btn:hover {
-background:#fff;
-color:#0076A9;
-}
-.eu_co.fo {
-height:32px;
-color:#696A6D;
-background-color:#f3f3f3;
-line-height:32px;
-font-size:11px;
-padding-bottom:0px;
-border-bottom:3px solid;
-border-bottom-left-radius:10px;
-border-bottom-right-radius:10px;
-}
-.eu_co.fo.pb35 {
-background-color: white;
-color: #2a2c30;
-font-size: 16px;
-padding-bottom: 20px;
-}
-.eu_co.st {
-font-size: 12px;
-padding: 10px 0;
-line-height: 20px;
-position: relative;
-color: #939393;
-background:#e3e3e3;
-border:0;
-text-align: center;
-}
-.s_img {
-vertical-align:top;
-padding-right:5px;
-background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAMCAYAAAAzmK6YAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDg4M0FBNkZBODFFMTFFNUI3RkJGMDcxMjM1MjFGQjUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDg4M0FBNzBBODFFMTFFNUI3RkJGMDcxMjM1MjFGQjUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowODgzQUE2REE4MUUxMUU1QjdGQkYwNzEyMzUyMUZCNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowODgzQUE2RUE4MUUxMUU1QjdGQkYwNzEyMzUyMUZCNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkDA4BkAAANHSURBVHja1JZpSBVhFIaveevaQpGRqaVkC5UWSiutkCVtRlaWtlhRli3+CPtREBFFBUULoVBhEYVYtEALEgZmC4ZEJBFEciuznVKIdjW098BzZbqo+c/64HGcmW++Oed873nnBjQ0NLhs5OTkuJoY8WK5GCn6CI94K26Io+K+6x8ZmZmZLd53+51bMtGiXswXax33noqzokh8FJ/aOLcBxPm8NZPd7GZnHXaLZaK735wf4oJ4IdqLUHGzjZO0OArEF9T21xGQnZ3tIZHEZuZY1b6LR2IvCY8WE0WEqBGPxUVR4nhukujL83X2LlEh7ok5Ik68F1doB1+rjBNV4hL3O4kkMYh5l0UHUSnyRJoYIyazKVcl48Zd1ibavTBLNIN+a258FltYdIVYSUXtehBS9zB3s9jH/ydEMhKPINGD9lIxTbwRw8QzMZwiWqtUix5Ici7rDCGxaIp5TJwWS0VvnrV26kkxRhBjHgUvaac/i1pI8rWYKo6ICSQ3Wwyl8hZglBWO+Sb/GP5fQ8Db2dXzwsv7TEFTRCpKyCTJdRRlFV5gwW4TY8USUS66ivHiJ3MtyR0ikneFiwSSNFmnmCJsR58gC/9RzQNlrewb25l+YrE4w7VNYr84LDaKWBKwAnwT18QukSu6NRGHyXuro3i2sycpboiw2OfRVr9YwzwkG3VlScaHfGZU3kyiWY4kB4uZ9GYves5c+DbHGSRZKx6KQF6WhtxPOdY1OfanT5NZz86LHXNCkHgRMaRwXihe4Se3xED6Pp3WiCCG6axT7HTdA2IWwfnGHXogCjksFB39CpGA1Hyjgl72Yhi25nURzK6Y7K26D8QGkkliV0OR8mp2MRkzCsboInnWVPOSXrzLMYZet4KtRyFxKNLb6Lr2g0HOlMpCoVy3Pvog8lmgpVGJQZmbfuWlBbhxIK7ppo/MODJwTTOP42KPWECvheHqO9m9c2IUPV5KL8dT0EQ+hbmo6R1ml8/nr1SyTf8jUWw4HL2HYBCFrUjSi6zK/L7NboLzjXaYh4vggqh4rWOOfcu7UOAGx/VQnvX9QAni6FvPw5rVSqxOeQQwp0bn9U0l6p9ELK7lwXnjcLw6ql7AZ6nqf/gJ+FuAAQDyhegdUpDo7QAAAABJRU5ErkJggg==") no-repeat;
-width:55px;
-height:17px;
-position:relative;
-top:3px;
-display:inline-block;
-}
-.f_btn {
-display:inline-block;
-}
-.uq_cd {
-position:absolute;
-bottom:54px;
-right:25px;
-font-size:10px;
-color:#696A6D;
-}
-.s_l td {
-font-size: 13px;
-color: #77797c;
-text-align:right;
-}
-.s_l a {
-padding:4px;
-cursor:pointer;
-font-size:13px;
-}
-.s_l .sprt {
-margin-left: 6px;
-margin-right: 4px;
-padding-right: 0;
-cursor: default;
-height: 14px;
-border-left: 1px #cfd0d1 solid;
-}
-.langSelector{
-width:200px;
-}
-.langSelector td{
-text-align:right;
-}
-.logo_container{
-position:relative;
-max-width:758px;
-margin:0px auto;
-}
-.err_cd {
-font-size:16px;
-color:#2a2c30;
-text-align: left;
-background-color:white;
-padding-bottom:16px;
-}
-@media only screen and (max-width:700px) {
-td.bh{
-padding-bottom:35px;
-}
-.eu_h{
-font-size:18px;
-}
-.eu_h,.eu_co,.st{
-word-wrap:break-word;
-white-space:normal;
-}
-.sm{
-font-size:14px;
-}
-.fo{
-padding:2px 0;
-height:20px;
-line-height:20px;
-}
-.m_tbl {
-min-width: 300px;
-width: 95%;
-position:relative;
-left:-3px;
-}
-.uq_cd {
-bottom: 77px;
-}
-.a_i {
-position: relative;
-top: 4px;
-}
-.s_l {
-position: absolute;
-top:85px;
-width:100%;
-z-index:100;
-}
-.s_l a {
-padding: 0;
-}
-.m_tbl table .s_l td {
-text-align: center;
-}
-.pg{
-overflow-y:auto;
-}
-.langSelector{
-width:100%;
-}
-.langSelector td{
-text-align:center;
-}
-}
-</style>
+import streamlit as st
+import pandas as pd
+import numpy as np
+from io import BytesIO
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Alignment, PatternFill
 
-</head>
-<body>
-<!--[if lte IE 7]>
-<style type="text/css">
-.a_i {
-display: none;
-margin-right: 0;
-width: 0;
+st.title("SMARTLog: Wireline Cost Estimator")
+
+uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
+
+# --- Well A definition (reference well) ---
+reference_wells = {
+    "Well A": {
+        "Package": "Package A",
+        "Service": "Standard Wells",
+        "Hole Sections": {
+            '12.25"': {"Quantity": 2, "Total Months": 1, "Depth": 5500},
+            '8.5"': {"Quantity": 2, "Total Months": 1, "Depth": 8000}
+        },
+        # Map to the special-case group keys you already use in special_cases_map
+        "Tool Groups": [
+            "PEX-Rt Scanner (150DegC Max)",
+            "ECS-NMR (150DegC Max)",
+            "Dual-OBMI DSI (150DegC Max)",   # map to DOBMI group in your special_cases_map
+            "MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)",
+            "XL Rock (150DegC Max)",
+            "Pipe Conveyed Logging",
+            "FPIT & Back-off services / Drilling ontingent Support Services",
+            "Unit, Cables & Conveyance",
+            "Personnel",
+        ]
+    }
 }
-.m_tbl {
-width: 100%;
-}
-.pg {
-text-align: center;
-width:100%;
-}
-.pg_cont {
-width: 600px;
-}
-.m_tbl table td.eu_co.st {
-background-color: #e3e3e3;
-}
-.logo_container{
-width:600px;
-}
-</style>
-<![endif]-->
-<div class="pg red">
-<div class="pg_cont">
-<div id="logo_container" class="logo_container">
-<table id="logo" width="50%" cellspacing="0" cellpadding="0" border="0" align="center">
-<tbody>
-<tr align="center">
-<td align="center" class="bh">
-<img src="https://login.zscaler.net:443/__zsig/v77vFq01WQ3rP" /></td></tr>
-</tbody></table></div>
-<table class="m_tbl" cellpadding="0" cellspacing="0" align="center">
-<tbody><tr>
-<td height="100" valign="top" style="position:relative;">
-<div class="uq_cd">D22</div>
-<!--locale en_US-->
-<table id="en_US" width="100%" border="0" cellspacing="0" cellpadding="0">
-<tbody><tr><td class="eu_h">
-<i class="a_i"></i>
-Sorry, you don't have permission to visit this site.
-</td></tr>
-<tr><td class="hr"><hr></td></tr>
-<tr><td class="eu_co">
-<b><strong>Dear User,</strong></p>
-<p>The website you try to access is not allowed by PETRONAS Internet Use Policy.</p></b>
-</td></tr>
-<tr><td class="eu_co rsn">
-Not allowed to browse <B>FileHost</B> category
-</td></tr>
-<tr><td class="eu_co">
-You tried to visit:<div class="eu_l"><a href="https://raw.githubusercontent.com/ArshadBatman/wireline-cost-estimate/refs/heads/main/wl_ce.py">https://raw.githubusercontent.com/ArshadBatman/wireline-cost-estimate/refs/heads/main/wl_c...</a></div>
-</td></tr><tr>
-<td class="hr"><hr></td>
-</tr>
-<tr><td class="eu_co">
-<a href="https://mypetronas.com/group-digital/cybersecurity/employeepitstop-egenduser?url=https%3a%2f%2fraw%2egithubusercontent%2ecom%2fArshadBatman%2fwireline%2dcost%2destimate%2frefs%2fheads%2fmain%2fwl%5fce%2epy&referer=https%3a%2f%2fgithub%2ecom%2fArshadBatman%2fwireline%2dcost%2destimate%2fblob%2fmain%2fwl%5fce%2epy&reason=Not+allowed+to+browse+FileHost+category&reasoncode=CATEGORY_DENIED&timebound=1&action=deny&kind=&rule=MlLtmFjDH4FB76nWm4q46tmpFDlLqVlFjjs7MQn&cat=FileHost&user=muhamadarshad.abdsuh@petronas.com&locid=02afc99d&lang=en_US&zsq=MlLtmFjDH4FB76nWm4q46tmpFDlLqVlFjjs7MQnzsq"></style>
-<a href=dummy.link></a>
-<br><font size=-1>
-<script type="text/javascript">
-var e = Date.now();
-var d = new Date(e);
-document.write(d);
-</script>
-</font>
-<p>============================================================================</p>
-<p>Access to this website has been restricted in accordance with PETRONAS Internet Use Policy. If you require access to this site for business purposes, please submit a request for permission via AppCentre: Access to Blocked Websites:</p>
-<p>Otherwise, if you believe that this is an error, you may report the issue to the ICT Service Desk along with a screenshot of the error message:</p>
-<ol>
-<li><a href="https://mygenieplus-dwp.onbmc.com/">myGenie+ Self-Service / Chat</a></li>
-<li>Email: <a href="mailto:ict.servicedesk@petronas.com">ict.servicedesk@petronas.com</a></li>
-<li>Call: 03-2331 3333 / 8-351 3333</li>
-</ol>
-<p>============================================================================</p>
-<p>PETRONAS Internet guidelines: <p>
-<p>- PETRONAS Internet facilities are made available to the approved users for business purposes only. Action will be taken against any unauthorized use of the system, including disciplinary action. Web sites that belong to the following categories are blocked:</p>
-<p> - Adult Sex Education, Adult Themes, Alcohol/Tobacco, Anonymizer, Computer Hacking, Copyright Infringement, Gambling, Image Host, K-12 Sex Education, Lingerie/Bikini, Marijuana, Mature Humor, Nudity, Online and Other Games, Other Adult Material, Other Drugs, Other Illegal or Questionable, Other Security, Other Social and Family Issues, Peer-to-Peer Site, Pornography, Profanity, Questionable, Radio, Sexuality, Shareware Download, Social Issues, Social Networking, Social Networking Adult, Social Networking Games, Spyware/Adware, Tasteless, Television/Movies, Video Streaming.</p></a>
-</td></tr>
-<tr><td class="eu_co ln">
-<a href="https://mypetronas.com/group-digital/cybersecurity/employeepitstop-egenduser">
-See our internet use policy.
-</a>
-</td></tr>
-<tr><td class="eu_co fo">
-</td></tr>
-<tr><td class="eu_co st">
-<span class="s_img"></span>
-Your organization has selected Zscaler to protect you from internet threats.
-</td></tr>
-</tbody></table>
-<!--/locale en_US-->
-</td></tr>
-</tbody></table>
-</div>
-</div>
-</body></html>
-<!-- 1331479 1 2 0 1763350411 192 https://raw.githubusercontent.com/ArshadBatman/wireline-cost-estimate/refs/heads/main/wl_ce.py -->
+
+# --- Reference Well Selector (sidebar) ---
+st.sidebar.header("Reference Well Selection")
+selected_well = st.sidebar.selectbox("Reference Well", ["None"] + list(reference_wells.keys()), index=0)
+
+if uploaded_file:
+    # --- Reset unique tracker when a new file is uploaded ---
+    if "last_uploaded_name" not in st.session_state or st.session_state["last_uploaded_name"] != uploaded_file.name:
+        st.session_state["unique_tracker"] = set()
+        st.session_state["last_uploaded_name"] = uploaded_file.name
+
+    # Optional manual reset button
+    if st.sidebar.button("Reset unique-tool usage (AU14, etc.)", key="reset_unique"):
+        st.session_state["unique_tracker"] = set()
+        st.sidebar.success("Unique-tool tracker cleared.")
+
+    # Read data
+    df = pd.read_excel(uploaded_file, sheet_name="Data")
+
+    # Unique tools across sections
+    unique_tools = {"AU14: AUX_SURELOC"}
+
+    # --- Well selection (top of sidebar) ---
+    st.sidebar.header("Well Selection")
+    # keep original selectbox too, but show chosen reference well state
+    well_option = selected_well  # "None" or "Well A"
+
+    # --- Dynamic Hole Section Setup ---
+    st.sidebar.header("Hole Sections Setup")
+    # If Well A selected, default number of sections = 2, else default 2 (same)
+    default_num_sections = 2 if well_option == "Well A" else 2
+    num_sections = st.sidebar.number_input("Number of Hole Sections", min_value=1, max_value=5, value=default_num_sections, step=1)
+
+    # If Well A selected, use its hole sizes as defaults; otherwise use calculated defaults
+    hole_sizes = []
+    if well_option == "Well A":
+        # Use exact keys from reference_wells (keeps the inch formatting)
+        hole_sizes = list(reference_wells["Well A"]["Hole Sections"].keys())
+        # If user changed num_sections and it doesn't match default, allow editing below; but default hole sizes are used initially
+        # If UI number_input changed to different value, still show fields for each index—we'll fallback to provided default formatting
+        if len(hole_sizes) < num_sections:
+            # append generic sizes if necessary
+            for i in range(len(hole_sizes), num_sections):
+                hole_sizes.append(f'{12.25 - i*3.75:.2f}')
+        elif len(hole_sizes) > num_sections:
+            hole_sizes = hole_sizes[:num_sections]
+    else:
+        for i in range(num_sections):
+            hole_size = st.sidebar.text_input(f"Hole Section {i+1} Size (inches)", value=f"{12.25 - i*3.75:.2f}")
+            hole_sizes.append(hole_size)
+
+    # If Well A selected, prefill session_state defaults for qty/months/depth & package/service
+    if well_option == "Well A":
+        well_info = reference_wells["Well A"]
+        for hole_size in hole_sizes:
+            # Use the exact key like '12.25"' or '8.5"'
+            if hole_size in well_info["Hole Sections"]:
+                info = well_info["Hole Sections"][hole_size]
+                # Set session state defaults (will be used by number_input default values below)
+                st.session_state.setdefault(f"qty_{hole_size}", info.get("Quantity", 2))
+                st.session_state.setdefault(f"months_{hole_size}", info.get("Total Months", 1))
+                st.session_state.setdefault(f"depth_{hole_size}", info.get("Depth", 5500))
+                # set package/service default placeholders (we'll apply when options exist)
+                st.session_state.setdefault(f"pkg_default_for_{hole_size}", well_info["Package"])
+                st.session_state.setdefault(f"svc_default_for_{hole_size}", well_info["Service"])
+    # Create dynamic tabs
+    tabs = st.tabs([f'{hs}" Hole Section' for hs in hole_sizes])
+    section_totals = {}
+    all_calc_dfs_for_excel = []  # store data for Excel download
+
+    # --- Loop for each hole section ---
+    for tab, hole_size in zip(tabs, hole_sizes):
+        with tab:
+            st.header(f'{hole_size}" Hole Section')
+
+            # Sidebar inputs per section
+            st.sidebar.subheader(f"Inputs for {hole_size}\" Section")
+
+            # --- Force default quantity = 0 for Well A 8.5" Hole Section ---
+            if well_option == "Well A" and hole_size == '8.5"':
+                st.session_state[f"qty_{hole_size}"] = 0  # overwrite session state
+                default_qty = 0
+            else:
+                default_qty = st.session_state.get(f"qty_{hole_size}", 2)
+            
+            quantity_tools = st.sidebar.number_input(
+                f"Quantity of Tools ({hole_size})",
+                min_value=0,
+                value=default_qty,
+                key=f"qty_{hole_size}"
+            )
+
+            total_days = st.sidebar.number_input(
+                f"Total Days ({hole_size})", min_value=0, value=st.session_state.get(f"days_{hole_size}", 0), key=f"days_{hole_size}"
+            )
+            total_months = st.sidebar.number_input(
+                f"Total Months ({hole_size})",
+                min_value=0,
+                value=st.session_state.get(f"months_{hole_size}", 1),
+                key=f"months_{hole_size}"
+            )
+            total_depth = st.sidebar.number_input(
+                f"Total Depth (ft) ({hole_size})",
+                min_value=0,
+                value=st.session_state.get(f"depth_{hole_size}", 5500),
+                key=f"depth_{hole_size}"
+            )
+            total_survey = st.sidebar.number_input(
+                f"Total Survey (ft) ({hole_size})", min_value=0, value=st.session_state.get(f"survey_{hole_size}", 0), key=f"survey_{hole_size}"
+            )
+            total_hours = st.sidebar.number_input(
+                f"Total Hours ({hole_size})", min_value=0, value=st.session_state.get(f"hours_{hole_size}", 0), key=f"hours_{hole_size}"
+            )
+            # disc stored in session state earlier may be fraction or percent — ensure consistent default
+            disc_default = st.session_state.get(f"disc_{hole_size}", 0.0)
+            if disc_default > 1.0:
+                # if earlier stored as percent e.g. 5.0, convert to fraction
+                disc_default_fraction = disc_default / 100.0
+            else:
+                disc_default_fraction = disc_default
+            discount = st.sidebar.number_input(
+                f"Discount (%) ({hole_size})",
+                min_value=0.0,
+                max_value=100.0,
+                value=disc_default_fraction * 100,
+                key=f"disc_{hole_size}"
+            ) / 100.0
+
+           # --- Package & Service ---
+            st.subheader("Select Package")
+            package_options = df["Package"].dropna().unique().tolist()
+            
+            # --- Default package logic for Well A ---
+            default_pkg = None
+            if well_option == "Well A":
+                pkg_candidate = reference_wells["Well A"]["Package"]
+                if pkg_candidate in package_options:
+                    default_pkg = pkg_candidate
+            
+            if default_pkg:
+                try:
+                    selected_package = st.selectbox(
+                        "Choose Package", package_options, index=package_options.index(default_pkg), key=f"pkg_{hole_size}"
+                    )
+                except Exception:
+                    selected_package = st.selectbox("Choose Package", package_options, key=f"pkg_{hole_size}")
+            else:
+                selected_package = st.selectbox("Choose Package", package_options, key=f"pkg_{hole_size}")
+            
+            package_df = df[df["Package"] == selected_package]
+            
+            # --- Service Name selection ---
+            st.subheader("Select Service Name")
+            service_options = package_df["Service Name"].dropna().unique().tolist()
+            service_options = [svc for svc in service_options if svc.strip() != ""]  # remove empty strings
+            
+           
+            # Always allow blank option
+            if "" not in service_options:
+                service_options.append("")
+            
+            # Default service if Well A
+            default_svc = None
+            if well_option == "Well A":
+                svc_candidate = reference_wells["Well A"]["Service"]  # usually "Standard Wells"
+                if svc_candidate in service_options:
+                    default_svc = svc_candidate
+            
+            # Select Service Name
+            if default_svc:
+                try:
+                    selected_service = st.selectbox(
+                        "Choose Service Name", service_options, index=service_options.index(default_svc), key=f"svc_{hole_size}"
+                    )
+                except Exception:
+                    selected_service = st.selectbox("Choose Service Name", service_options, key=f"svc_{hole_size}")
+            else:
+                # fallback to normal selectbox
+                if len(service_options) == 0:
+                    selected_service = st.selectbox("Choose Service Name", [""], index=0, key=f"svc_{hole_size}")
+                else:
+                    selected_service = st.selectbox("Choose Service Name", service_options, key=f"svc_{hole_size}")
+            
+            # --- Filter DataFrame based on selected service (including blanks) ---
+            df_service = package_df[
+                (package_df["Service Name"] == selected_service) | 
+                (package_df["Service Name"].isna()) | 
+                (package_df["Service Name"] == "")
+            ]
+
+
+
+            # --- Tool selection with special cases ---
+            # Build the special_cases_map exactly as in your original code so the groups match
+            code_list = df_service["Specification 1"].dropna().unique().tolist()
+            special_cases_map = {
+                "STANDARD WELLS": {
+                    "PEX-Rt Scanner (150DegC Max)": ["AU14: AUX_SURELOC","NE1: NEUT_THER","DE1: DENS_FULL","RE4: RES_ANIS"],
+                    "PEX-AIT (150DegC Max)": ["AU14: AUX_SURELOC","GR1: GR_TOTL","NE1: NEUT_THER","DE1: DENS_FULL","RE1: RES_INDU"],
+                    "PEX-AIT-DSI (150DegC Max)": ["AU14: AUX_SURELOC","GR1: GR_TOTL","NE1: NEUT_THER","DE1: DENS_FULL","RE1: RES_INDU",
+                                                 "AU3:AUX_INCL", "AU2: AUX_PCAL", "AU2: AUX_PCAL", "AC3: ACOU_3", "PP7: PROC_PETR7", "PA7: PROC_ACOU6",
+                                                 "PA11: PROC_ACOU13", "PA12: PROC_ACOU14"],
+                    "Dual-OBMI DSI (150DegC Max)": ["AU14: AUX_SURELOC","GR1: GR_TOTL","AU3: AUX_INCL","AC3: ACOU_3",
+                                            "AU2: AUX_PCAL","AU2: AUX_PCAL","PP7: PROC_PETR7","PA7: PROC_ACOU6",
+                                            "PA11: PROC_ACOU13","PA12: PROC_ACOU14","IM3: IMAG_SOBM","PI1: PROC_IMAG1",
+                                            "PI2: PROC_IMAG2","PI7: PROC_IMAG7"],
+                    "Dual OBMI-Sonic Scanner (150DegC Max) ": ["AU14: AUX_SURELOC","GR1: GR_TOTL","AU3: AUX_INCL","AC4: ACOU_ADD1",
+                                            "AU2: AUX_PCAL","AU2: AUX_PCAL","PP7: PROC_PETR7","PA7: PROC_ACOU6",
+                                            "PA11: PROC_ACOU13","PA12: PROC_ACOU14","IM3: IMAG_SOBM","PI1: PROC_IMAG1",
+                                            "PI2: PROC_IMAG2","PI7: PROC_IMAG7","PI8: PROC_IMAG8","PI9: PROC_IMAG9",
+                                            "PI12: PROC_IMAG12","PI13: PROC_IMAG13"],
+                    "MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)": ["AU14: AUX_SURELOC","FP25: FPS_SCAR","FP25: FPS_SCAR",
+                                                                      "FP18: FPS_SAMP","FP19: FPS_SPHA","FP23: FPS_TRA",
+                                                                      "FP24: FPS_TRK","FP28: FPS_FCHA_1","FP33: FPS_FCHA_6",
+                                                                      "FP34: FPS_FCHA_7","FP14: FPS_PUMP","FP14: FPS_PUMP",
+                                                                      "FP42: FPS_PROB_XLD","FP11: FPS_PROB_FO","FP26: FPS_FCON",
+                                                                      "DT3:RTDT_PER","PPT12: PROC_PT12","FP7: FPS_SPPT_2"],
+                    "ECS-NMR (150DegC Max)": ["AU14: AUX_SURELOC","GR1: GR_TOTL","EC1: ES_1","NM1: NMR_1","PN1: PROC_NMR1","PN2: PROC_NMR2","PN6: PROC_NMR6","PE1: PROC_ES1","PP1: PROC_PETR1","PP6: PROC_PETR6", "PN3: PROC_NMR3"],
+                    "IBC (PowerFlex)-CBL (150DegC Max)": ["CE1:CES_CBL","CE4:CES_CBI_3","CE6:CES_CBI_5", "DT3:RTDT_PER", "PPT13:PROC_PT13", "DT12:USI-DIG-LP-CET3"],
+                    "DSI-QuantaGeo-Rt Scanner (150DegC Max)": ["AU14: AUX_SURELOC","GR1: GR_TOTL","AU3: AUX_INCL", "AC4: ACOU_ADD1", "AC3: ACOU_3", "AU2:AUX_PCAL",
+                                                              "AU2:AUX_PCAL", "IM4:IMAG_ADD1","PI1:PROC_IMAG1", "DT4:SONIC-WELL-P/S-DIG", "PI2: PROC_IMAG2", "PI7: PROC_IMAG7",
+                                                              "PI8:PROC_IMAG8", "PI9:PROC_IMAG9", "PI12: PROC_IMAG12", "PI13: PROC_IMAG13", "RE4: RES_ANIS"],
+                    "Pipe Conveyed Logging": ["CO1: CONV_PCL"],
+                    "FPIT & Back-off services / Drilling ontingent Support Services": ["AU7: AUX_SBOX","PC5: PC_10KH2S","PR1: PR_FP","PR2: PR_BO","PR3: PR_TP","AU11: AUX_GRCCL",
+                                                                                      "PR7: PR_CST","MS1: MS_PL","MS3: MS_JB"],
+                    "Unit, Cables & Conveyance": ["LU1: LUDR_ZON2","CA9: CABL_HSOH_1","CA3: CABL_HSOH","CA8: CABL_STCH_2","DT2:RTDT_SAT"],
+                    "XL Rock (150DegC Max)": ["AU14: AUX_SURELOC","SC2: SC_ADD1","SC2: SC_ADD2"],
+                    "XL Rock (150DegC Max) With Core Detection": ["AU14: AUX_SURELOC","SC2: SC_ADD1","SC2: SC_ADD2", "SC4: SC_ADD4"],
+                    "Personnel": ["PER1:PWFE","PER2:PWSO","PER3:PWOP", "PER4:PWSE"]
+                },
+                "HT WELLS": {}
+            }
+
+            special_cases = special_cases_map.get(selected_service, {})
+            code_list_with_special = list(special_cases.keys()) + code_list
+
+            # If Well A is selected, automatically preselect the Well A tool groups
+            default_selected_groups = []
+            if well_option == "Well A":
+                default_groups = reference_wells["Well A"]["Tool Groups"]
+                default_selected_groups = [g for g in default_groups if g in code_list_with_special]
+            
+                # Exclude certain groups for 12.25" Hole Section
+                if hole_size == '12.25"':
+                    exclude_services_12_25 = [
+                        "Pipe Conveyed Logging",
+                        "FPIT & Back-off services / Drilling ontingent Support Services",
+                        "Unit, Cables & Conveyance",
+                        "Personnel"
+                    ]
+                    default_selected_groups = [g for g in default_selected_groups if g not in exclude_services_12_25]
+
+            selected_codes = st.multiselect("Select Tools (by Specification 1)", code_list_with_special, default=default_selected_groups, key=f"tools_{hole_size}")
+
+            # --- Expand selected special cases ---
+            expanded_codes = []
+            used_special_cases = []
+            for code in selected_codes:
+                if code in special_cases:
+                    expanded_codes.extend(special_cases[code])
+                    used_special_cases.append(code)
+                else:
+                    expanded_codes.append(code)
+
+            # --- If Well A selected AND special groups were auto-selected above, ensure the mapped codes from special_cases are included even if df_service doesn't contain all codes.
+            # df_tools picks only those present in df_service, so Excel/calculation will use what's present.
+            df_tools = df_service[df_service["Specification 1"].isin(expanded_codes)].copy()
+
+            # --- Row-by-row display with dividers ---
+            if not df_tools.empty:
+                display_rows = []
+                
+                # --- Special cases with divider ---
+                for sc in used_special_cases:
+                    divider = pd.DataFrame({col: "" for col in df_tools.columns}, index=[0])
+                    divider["Specification 1"] = f"--- {sc} ---"
+                    display_rows.append(divider)
+                
+                    for item in special_cases[sc]:
+                        item_rows = df_tools[df_tools["Specification 1"] == item]
+                        if not item_rows.empty:
+                            display_rows.append(item_rows)  # include all rows
+                
+                # --- Non-special tools ---
+                non_special_mask = ~df_tools["Specification 1"].isin(sum(special_cases.values(), []))
+                non_special_df = df_tools[non_special_mask]
+                if not non_special_df.empty:
+                    display_rows.append(non_special_df)
+                
+                # --- Combine ---
+                if display_rows:
+                    display_df = pd.concat(display_rows, ignore_index=True)
+                else:
+                    display_df = df_tools.copy()
+
+
+                def highlight_divider(row):
+                    if str(row["Specification 1"]).startswith("---"):
+                        return ["background-color: red; color: white"] * len(row)
+                    return [""] * len(row)
+
+                st.subheader(f"Selected Data - Package {selected_package}, Service {selected_service}")
+                st.dataframe(display_df.style.apply(highlight_divider, axis=1))
+
+                # --- Calculation
+                #Build Calculated Cost Table from display_df
+                calc_df = display_df.copy()
+                
+                numeric_cols = [
+                    "Quantity of Tools", "Total Days", "Total Months", "Total Depth (ft)",
+                    "Total Survey (ft)", "Total Hours", "Discount (%)", "Daily Rate",
+                    "Monthly Rate", "Depth Charge (per ft)", "Flat Charge", "Survey Charge (per ft)",
+                    "Hourly Charge", "Total Flat Charge"
+                ]
+                
+                # Ensure all numeric columns exist
+                for col in numeric_cols:
+                    if col not in calc_df.columns:
+                        calc_df[col] = 0
+                
+                # --- Assign other sidebar inputs
+                calc_df["Total Days"] = total_days
+                calc_df["Total Months"] = total_months
+                calc_df["Total Depth (ft)"] = total_depth
+                calc_df["Total Survey (ft)"] = total_survey
+                calc_df["Total Hours"] = total_hours
+                calc_df["Discount (%)"] = discount * 100
+                calc_df["Total Flat Charge"] = 0  # Start from 0
+                
+                # --- Define groups and their Total Flat Charge values ---
+                flat_charge_groups = {
+                    1: ["ECS-NMR (150DegC Max)", "PN1: PROC_NMR1", "PN2: PROC_NMR2", "PN3: PROC_NMR3",
+                        "PN6: PROC_NMR6", "PE1: PROC_ES1", "PP1: PROC_PETR1", "PP6: PROC_PETR6",
+                        "Dual-OBMI DSI (150DegC Max)", "PA12: PROC_ACOU14", "PI1: PROC_IMAG1", "PI2: PROC_IMAG2",
+                        "PI7: PROC_IMAG7", "PI8: PROC_IMAG8", "PI9: PROC_IMAG9", "PI12: PROC_IMAG12", "PI13: PROC_IMAG13",
+                        "MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)", "PPT12: PROC_PT12",
+                        "Unit, Cables & Conveyance", "DT2:RTDT_SAT"
+                    ],
+                    2: ["MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)", "FP19: FPS_SPHA", "FP23: FPS_TRA"],
+                    4: ["Dual-OBMI DSI (150DegC Max)", "PP7: PROC_PETR7", "PA7: PROC_ACOU6", "PA11: PROC_ACOU13",
+                        "MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)", "DT3:RTDT_PER"
+                    ],
+                    5: ["MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)", "FP18: FPS_SAMP", "FP28: FPS_FCHA_1",
+                        "FP33: FPS_FCHA_6", "FP34: FPS_FCHA_7", "FP11: FPS_PROB_FO", "FP26: FPS_FCON"
+                    ],
+                    10: ["MDT: LFA-QS-XLD-MIFA-Saturn-2MS (150DegC Max)", "FP42: FPS_PROB_XLD"],
+                    50: ["XL Rock (150DegC Max)", "SC2: SC_ADD1", "SC2: SC_ADD2"]
+                }
+                
+                # Apply Total Flat Charge per group
+                for charge_value, specs in flat_charge_groups.items():
+                    calc_df.loc[
+                        calc_df["Specification 1"].str.upper().apply(
+                            lambda x: any(spec.upper() in x for spec in specs)
+                        ),
+                        "Total Flat Charge"
+                    ] = charge_value
+                
+                # --- Recalc function ---
+                def recalc_costs(df):
+                    df = df.copy()
+                    for col in numeric_cols:
+                        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+                    
+                    totals = []
+                    for _, row in df.iterrows():
+                        spec = str(row["Specification 1"])
+                        if spec.startswith("---"):
+                            totals.append(0)
+                            continue
+                        disc_fraction = row["Discount (%)"] / 100
+                        total_flat = row.get("Total Flat Charge", 0)
+                        operating_charge = (
+                            (row["Depth Charge (per ft)"] * row["Total Depth (ft)"]) +
+                            (row["Survey Charge (per ft)"] * row["Total Survey (ft)"]) +
+                            (row["Flat Charge"] * total_flat) +
+                            (row["Hourly Charge"] * row["Total Hours"])
+                        ) * (1 - disc_fraction)
+                        rental_charge = row["Quantity of Tools"] * (
+                            (row["Daily Rate"] * row["Total Days"]) +
+                            (row["Monthly Rate"] * row["Total Months"])
+                        ) * (1 - disc_fraction)
+                        totals.append(operating_charge + rental_charge)
+                    df["Total (MYR)"] = totals
+                    return df
+                
+                # Sanitize hole size for session key
+                safe_hole_size = hole_size.replace('"', '_').replace('.', '_')
+                calc_key = f"calc_state_{safe_hole_size}"
+                
+                # --- Apply Well A exceptions and sidebar quantities ---
+                def apply_quantities(df, well, hole, sidebar_qty):
+                    df = df.copy()
+                    
+                    exceptions_map = {}
+                    if well == "Well A":
+                        if hole == '12.25"':
+                            exceptions_map = {
+                                "FP18: FPS_SAMP": 11,
+                                "FP19: FPS_SPHA": 4,
+                                "FP23: FPS_TRA": 4,
+                                "FP24: FPS_TRK": 1,
+                                "FP33: FPS_FCHA_6": 1,
+                                "FP34: FPS_FCHA_7": 1,
+                            }
+                        elif hole == '8.5"':
+                            exceptions_map = {
+                                "FP18: FPS_SAMP": 5,
+                                "FP19: FPS_SPHA": 2,
+                                "FP23: FPS_TRA": 2,
+                            }
+                    
+                    df["clean_spec"] = df["Specification 1"].str.strip().str.upper()
+                    
+                    # Apply exceptions first
+                    for spec_name, qty in exceptions_map.items():
+                        spec_upper = spec_name.strip().upper()
+                        df.loc[df["clean_spec"] == spec_upper, "Quantity of Tools"] = qty
+                    
+                    # Assign sidebar quantity to remaining rows
+                    mask_no_exception = ~df["clean_spec"].isin([k.strip().upper() for k in exceptions_map.keys()])
+                    df.loc[mask_no_exception, "Quantity of Tools"] = sidebar_qty
+                    
+                    df.drop(columns=["clean_spec"], inplace=True)
+                    return df
+                
+                # --- Initial calculation ---
+                calc_df = apply_quantities(calc_df, selected_well, hole_size, quantity_tools)
+                calc_df = recalc_costs(calc_df)
+                st.session_state[calc_key] = calc_df.copy()
+                
+                working_calc_df = st.session_state[calc_key].copy()
+                
+                # Include any new rows
+                missing_specs = set(calc_df["Specification 1"]) - set(working_calc_df["Specification 1"])
+                if missing_specs:
+                    working_calc_df = pd.concat(
+                        [working_calc_df, calc_df[calc_df["Specification 1"].isin(missing_specs)]],
+                        ignore_index=True
+                    )
+                
+                # Apply sidebar inputs and recalc
+                working_calc_df["Total Days"] = total_days
+                working_calc_df["Total Months"] = total_months
+                working_calc_df["Total Depth (ft)"] = total_depth
+                working_calc_df["Total Survey (ft)"] = total_survey
+                working_calc_df["Total Hours"] = total_hours
+                working_calc_df["Discount (%)"] = discount * 100
+                
+                working_calc_df = apply_quantities(working_calc_df, selected_well, hole_size, quantity_tools)
+                working_calc_df = recalc_costs(working_calc_df).reset_index(drop=True)
+                
+                # --- Display editable table ---
+                edited_df = st.data_editor(
+                    working_calc_df,
+                    num_rows="dynamic",
+                    key=f"calc_editor_{safe_hole_size}",
+                )
+                
+                # --- Reapply exceptions after user edits ---
+                edited_df = apply_quantities(edited_df, selected_well, hole_size, quantity_tools)
+                updated_calc_df = recalc_costs(edited_df)
+                st.session_state[calc_key] = updated_calc_df
+                
+                # --- Section total ---
+                section_total = updated_calc_df["Total (MYR)"].sum()
+                section_totals[hole_size] = section_total
+                st.write(f"### 💵 Section Total for {hole_size}\" Hole: {section_total:,.2f}")
+
+                # --- Identify special tools for Excel/flat charge calculations separately ---
+                flat_charge_sections = {}
+                for charge_value in updated_calc_df["Total Flat Charge"].unique():
+                    if charge_value > 0:
+                        tools = updated_calc_df.loc[
+                            updated_calc_df["Total Flat Charge"] == charge_value, "Specification 1"
+                        ].tolist()
+                        section_name = f"FlatCharge_{charge_value}"
+                        flat_charge_sections[section_name] = tools
+                
+                # Store for Excel download
+                all_calc_dfs_for_excel.append((hole_size, used_special_cases, updated_calc_df, flat_charge_sections))
+
+
+
+
+    # --- Grand Total ---
+    if section_totals:
+        grand_total = sum(section_totals.values())
+        st.success(f"🏆 Grand Total Price (MYR): {grand_total:,.2f}")
+
+# --- Excel Download ---
+# --- Excel Download ---
+# --- Excel Download ---
+if st.button("Download Cost Estimate Excel"):
+    output = BytesIO()
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        for hole_size, used_special_cases, df_tools_section, flat_charge_sections in all_calc_dfs_for_excel:
+            sheet_name = f'{hole_size}" Hole'
+            wb = writer.book
+            ws = wb.create_sheet(title=sheet_name)
+
+            # --- Header rows ---
+            ws.merge_cells("B2:B4"); ws["B2"]="Reference"
+            ws.merge_cells("C2:C4"); ws["C2"]="Specification 1"
+            ws.merge_cells("D2:D4"); ws["D2"]="Specification 2"
+            ws.merge_cells("E2:J2"); ws["E2"]="Unit Price"
+            ws.merge_cells("E3:F3"); ws["E3"]="Rental Price"
+            ws.merge_cells("G3:J3"); ws["G3"]="Operating Charge"
+            ws["E4"]="Daily Rate"; ws["F4"]="Monthly Rate"; ws["G4"]="Depth Charge (per ft)"
+            ws["H4"]="Survey Charge (per ft)"; ws["I4"]="Flat Charge"; ws["J4"]="Hourly Charge"
+
+            ws.merge_cells("K2:Q2"); ws["K2"] = "Operation Estimated"
+            ws.merge_cells("K3:K4"); ws["K3"] = "Quantity of Tools"
+            ws.merge_cells("L3:M3"); ws["L3"] = "Rental Parameters"
+            ws["L4"] = "Total Days"; ws["M4"] = "Total Months"
+            ws.merge_cells("N3:Q3"); ws["N3"] = "Operating Parameters"
+            ws["N4"] = "Total Depth (ft)"; ws["O4"] = "Total Survey (ft)"
+            ws["P4"] = "Total Flat Charge (ft)"; ws["Q4"] = "Total Hours"
+            ws.merge_cells("R2:R4"); ws["R2"] = "Discount (%)"
+            ws.merge_cells("S2:S4"); ws["S2"] = "Total (MYR)"
+            ws.merge_cells("T2:T4"); ws["T2"] = "Grand Total Price (MYR)"
+            ws.merge_cells("U2:U3"); ws["U2"] = "Break Down"; ws["U4"] = "Rental Charge (MYR)"
+            ws.merge_cells("V2:V3"); ws["V2"] = "Break Down"; ws["V4"] = "Operating Charge (MYR)"
+
+            # --- Apply colors ---
+            white_fill = PatternFill(start_color="D9D9D9", end_color="D9D9D9", fill_type="solid")
+            light_green_fill = PatternFill(start_color="CCCC99", end_color="CCCC99", fill_type="solid")
+            blue_fill = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
+            for cell in ["B2","B3","B4","C2","C3","C4","D2","D3","D4","R2","R3","R4","S2","S3","S4","T2","T3","T4","U2","U3","V2","V3"]:
+                ws[cell].fill = white_fill; ws[cell].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+            for cell in ["E2","E3","E4","F2","F3","F4","G2","G3","G4","H4","I4","J4","U4","V4"]:
+                ws[cell].fill = light_green_fill; ws[cell].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+            for cell in ["K2","K3","K4","L3","L4","M3","M4","N3","N4","O4","P4","Q4"]:
+                ws[cell].fill = blue_fill; ws[cell].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+            # --- Insert data with inline red dividers ---
+            current_row = 5
+            first_data_row = current_row
+            inserted_dividers = set()
+
+            for _, item_row in df_tools_section.iterrows():
+                # Identify special case this row belongs to
+                sc_name = None
+                for sc, items in flat_charge_sections.items():
+                    if item_row["Specification 1"] in items:
+                        sc_name = sc
+                        break
+
+                # Insert red divider only once per special case
+                if sc_name and sc_name not in inserted_dividers:
+                    ws[f"B{current_row}"] = f'{hole_size}" in Section: {sc_name}'
+                    ws[f"B{current_row}"].fill = PatternFill(start_color="FF0000", end_color="FF0000", fill_type="solid")
+                    ws[f"B{current_row}"].alignment = Alignment(horizontal="center")
+                    current_row += 1
+                    inserted_dividers.add(sc_name)
+
+                # Insert tool row
+                for col, val in zip(
+                    ["B","C","D","E","F","G","H","I","J"], 
+                    [item_row["Reference"], item_row["Specification 1"], item_row["Specification 2"],
+                     item_row["Daily Rate"], item_row["Monthly Rate"], item_row["Depth Charge (per ft)"],
+                     item_row["Survey Charge (per ft)"], item_row["Flat Charge"], item_row["Hourly Charge"]]
+                ):
+                    ws[f"{col}{current_row}"] = val
+
+                # Operational columns
+                ws[f"K{current_row}"] = item_row["Quantity of Tools"]
+                ws[f"L{current_row}"] = item_row["Total Days"]
+                ws[f"M{current_row}"] = item_row["Total Months"]
+                ws[f"N{current_row}"] = item_row["Total Depth (ft)"]
+                ws[f"O{current_row}"] = item_row["Total Survey (ft)"]
+                ws[f"P{current_row}"] = item_row["Total Flat Charge"]
+                ws[f"Q{current_row}"] = item_row["Total Hours"]
+                ws[f"R{current_row}"] = item_row["Discount (%)"]
+
+                # Charges
+                rental_charge = item_row["Quantity of Tools"] * (
+                    item_row["Daily Rate"] * item_row["Total Days"] +
+                    item_row["Monthly Rate"] * item_row["Total Months"]
+                ) * (1 - item_row["Discount (%)"]/100)
+
+                operating_charge = (
+                    item_row["Depth Charge (per ft)"] * item_row["Total Depth (ft)"] +
+                    item_row["Survey Charge (per ft)"] * item_row["Total Survey (ft)"] +
+                    item_row["Flat Charge"] * item_row["Total Flat Charge"] +
+                    item_row["Hourly Charge"] * item_row["Total Hours"]
+                ) * (1 - item_row["Discount (%)"]/100)
+
+                ws[f"S{current_row}"] = rental_charge + operating_charge
+                ws[f"U{current_row}"] = rental_charge
+                ws[f"V{current_row}"] = operating_charge
+
+                current_row += 1
+
+            # Grand total
+            ws[f"T{first_data_row}"] = f"=SUM(S{first_data_row}:S{current_row-1})"
+            ws[f"T{first_data_row}"].alignment = Alignment(horizontal="center")
+
+    output.seek(0)
+    st.download_button(
+        "Download Cost Estimate Excel",
+        data=output,
+        file_name="Cost_Estimate.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+
+
+
+
+
+
