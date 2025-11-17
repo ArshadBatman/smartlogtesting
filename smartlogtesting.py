@@ -657,67 +657,45 @@ elif option == "Core Cost Estimate":
     st.header("Core Cost Estimate Module")
     st.info("Core Cost Estimate functionality will be implemented here.")
     # Later, you can add your Core Cost Estimate workflow
-    uploaded_file = st.file_uploader("Upload Core Cost Excel File", type=["xlsx"])
-    
-    # Define the section boundaries (row numbers start at 0 in pandas)
-    SECTIONS = {
-        "TRANSPORTATION (I.)": (3, 14),
-        "CORE PREPARATION AND STORAGE (II.)": (14, 58),
-        "ROUTINE CORE ANALYSIS (RCA) (III.)": (58, 117),
-        "SPECIAL CORE ANALYSIS (SCAL) (IV.)": (117, 310),
-        "GEOLOGICAL ANALYSIS (V.)": (310, 409),
-        "ROCK MECHANICS STUDY (VI.)": (409, 450),
-        "COMPLETION DESIGN & PRODUCTION ENHANCEMENT (VII.)": (450, 464),
-        "DIGITAL CORE ANALYSIS (DCA) (VIII.)": (464, None),
-    }
+    # Step 1: Upload Excel
+    uploaded_file = st.file_uploader("Upload Core Cost Excel", type=["xlsx"])
     
     if uploaded_file:
-        df = pd.read_excel(uploaded_file, header=2)  # header row is row 3 in Excel
+        # Read Excel and handle messy headers
+        df = pd.read_excel(uploaded_file, header=2)  # Row 3 (0-indexed) is header
+        
+        # Clean column names: remove spaces, newlines, and normalize case
+        df.columns = df.columns.str.strip().str.replace("\n", " ").str.upper()
+        
+        # Map columns for convenience
+        col_desc = "DESCRIPTION"
+        col_price = "PRICE PER UNIT (MYR)"
+        col_qty = "QTY"
+        col_total = "TOTAL CE"
+        
+        # Drop rows where Description is empty
+        df = df.dropna(subset=[col_desc], how="all")
+        
+        # Extract Main Titles (like TRANSPORTATION, CORE PREPARATION, etc.)
+        main_titles = df.iloc[:, 1].dropna().unique()  # Column B contains main titles
+        main_titles = [str(title) for title in main_titles if not str(title).startswith(tuple("I.,II.,III.,IV.,V.,VI.,VII.,VIII."))]
     
-        st.success("File uploaded successfully!")
-    
-        st.write("### Select Items to Include in Cost Estimate")
-    
-        selected_items = []
-    
-        for section, (start, end) in SECTIONS.items():
-            st.markdown(f"## **{section}**")
-    
-            section_df = df.iloc[start:end].copy() if end else df.iloc[start:].copy()
-            section_df = section_df.dropna(subset=["Description"], how="all")
-    
-            # Add checkbox to each row
-            section_df["Select"] = False
-    
-            edited_df = st.data_editor(
-                section_df,
-                use_container_width=True,
-                column_config={
-                    "Select": st.column_config.CheckboxColumn(),
-                    "PRICE PER UNIT (MYR)": st.column_config.NumberColumn(format="%.2f"),
-                    "QTY": st.column_config.NumberColumn(format="%.0f"),
-                }
-            )
-    
-            # collect selected rows
-            selections = edited_df[edited_df["Select"] == True]
-            selected_items.append(selections)
-    
-        # Combine all selected
-        final_df = pd.concat(selected_items)
-    
-        if not final_df.empty:
-            final_df["Total"] = final_df["Price Per Unit (MYR)"] * final_df["QTY"]
-    
-            st.write("## **Selected Cost Items**")
-            st.dataframe(final_df)
-    
-            total_cost = final_df["Total"].sum()
-    
-            st.write(f"## 💰 **Total Core Cost Estimate: MYR {total_cost:,.2f}**")
-    
+        # Let user select which line items they want
+        st.subheader("Select Line Items")
+        selected_titles = st.multiselect("Pick Main Titles", options=df[col_desc].unique())
+        
+        # Filter DataFrame for selected items
+        if selected_titles:
+            filtered_df = df[df[col_desc].isin(selected_titles)].copy()
+            # Compute Cost Estimate
+            filtered_df[col_total] = filtered_df[col_price] * filtered_df[col_qty]
+            st.subheader("Cost Estimate Table")
+            st.dataframe(filtered_df[[col_desc, col_price, col_qty, col_total]])
+            
+            total_cost = filtered_df[col_total].sum()
+            st.markdown(f"**Total Cost Estimate (MYR): {total_cost:,.2f}**")
         else:
-            st.info("No items selected yet.")
+            st.info("Select at least one line item to see the cost estimate.")
 
 
 
