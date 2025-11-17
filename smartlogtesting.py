@@ -661,79 +661,59 @@ elif option == "Core Cost Estimate":
     uploaded_file = st.file_uploader("Upload Core Cost Excel", type=["xlsx"])
     
     if uploaded_file:
-        # Read Excel (header starts at row 3 -> index 2)
+        # Read Excel (header row at 3rd row, index=2)
         df = pd.read_excel(uploaded_file, header=2)
     
         # Clean column names
-        df.columns = df.columns.str.strip().str.replace("\n", " ").str.upper()
+        df.columns = df.columns.str.strip().str.upper()
     
-        # Column mapping
-        col_a = df.columns[0]  # Column A (I., II., 1., 2., etc.)
-        col_b = df.columns[1]  # Column B (Main titles / numbers)
-        col_c = df.columns[2]  # Column C (Descriptions)
+        col_a = df.columns[0]  # Section Indicator (I, II, III...)
+        col_b = df.columns[1]  # Line Item Number
+        col_c = df.columns[2]  # Description
         col_price = "PRICE PER UNIT (MYR)"
         col_qty = "QTY"
         col_total = "TOTAL CE"
     
-        # Ensure Description column exists & clean
         df = df.dropna(subset=[col_c], how="all")
     
-        # STEP 1 — Define Main Titles EXACTLY as provided (Excel rows are 0-indexed)
-        main_titles_rows = {
-            3:  "TRANSPORTATION",
-            14: "CORE PREPARATION AND STORAGE",
-            58: "ROUTINE CORE ANALYSIS (RCA)",
-            117: "SPECIAL CORE ANALYSIS (SCAL)",
-            310: "GEOLOGICAL ANALYSIS",
-            409: "ROCK MECHANICS STUDY",
-            450: "Completion Design & Production Enhancement",
-            464: "DIGITAL CORE ANALYSIS (DCA)"
+        # Map Section indicator to Section Title
+        section_map = {
+            "I": "TRANSPORTATION",
+            "II": "CORE PREPARATION AND STORAGE",
+            "III": "ROUTINE CORE ANALYSIS (RCA)",
+            "IV": "SPECIAL CORE ANALYSIS (SCAL)",
+            "V": "GEOLOGICAL ANALYSIS",
+            "VI": "ROCK MECHANICS STUDY",
+            "VII": "Completion Design & Production Enhancement",
+            "VIII": "DIGITAL CORE ANALYSIS (DCA)"
         }
+    
+        # Assign Section Title
+        df['SECTION_TITLE'] = df[col_a].map(section_map)
+    
+        # Handle GEOLOGICAL ANALYSIS sub-items like V1, V2... map to V
+        df.loc[df[col_a].str.startswith('V'), 'SECTION_TITLE'] = "GEOLOGICAL ANALYSIS"
     
         st.subheader("Select Line Items")
     
-        # STEP 2 — Build Sections (between Main Title rows)
-        section_indices = sorted(main_titles_rows.keys())
-        sections = {}
-    
-        for i, row_idx in enumerate(section_indices):
-            start = row_idx + 1
-            end = section_indices[i + 1] if i + 1 < len(section_indices) else len(df)
-            title = main_titles_rows[row_idx]
-            section_df = df.iloc[start:end].copy()
-            sections[title] = section_df
-    
         selected_items = []
     
-        # STEP 3 — Display each Section with checkboxes
-        for title, section_df in sections.items():
-            with st.expander(title):
-                for idx, row in section_df.iterrows():
-                    label = f"{row[col_a]} - {row[col_c]}"
-                    key = f"{title}_{idx}"   # UNIQUE KEY (fixes StreamlitDuplicateElementKey)
-    
+        # Group by Section Title
+        for section, group in df.groupby('SECTION_TITLE'):
+            with st.expander(section):
+                for idx, row in group.iterrows():
+                    label = f"{row[col_a]}-{row[col_b]}: {row[col_c]}"
+                    key = f"{section}_{idx}"  # unique key
                     if st.checkbox(label, key=key):
                         selected_items.append(row)
     
-        # STEP 4 — Build result table
+        # Show selected items and cost
         if selected_items:
             result_df = pd.DataFrame(selected_items)
-    
-            # Compute total cost
             result_df[col_total] = result_df[col_price] * result_df[col_qty]
-    
             st.subheader("Cost Estimate Summary")
-    
-            st.dataframe(
-                result_df[[col_a, col_c, col_price, col_qty, col_total]]
-            )
-    
+            st.dataframe(result_df[[col_a, col_b, col_c, col_price, col_qty, col_total]])
             total_cost = result_df[col_total].sum()
-    
             st.markdown(f"### **Total Cost Estimate (MYR): {total_cost:,.2f}**")
-    
         else:
             st.info("Select at least one line item to generate cost estimate.")
-
-
-
