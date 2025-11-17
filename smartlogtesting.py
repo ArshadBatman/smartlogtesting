@@ -690,9 +690,10 @@ elif option == "Core Cost Estimate":
     
         # Assign Section Title
         df['SECTION_TITLE'] = df[col_a].map(section_map)
-    
-        # Handle GEOLOGICAL ANALYSIS sub-items like V1, V2... map to V
-        df.loc[df[col_a].str.startswith('V'), 'SECTION_TITLE'] = "GEOLOGICAL ANALYSIS"
+
+        # Handle GEOLOGICAL ANALYSIS sub-items like V1, V2, ... safely
+        mask = df[col_a].notna() & df[col_a].astype(str).str.startswith('V')
+        df.loc[mask, 'SECTION_TITLE'] = "GEOLOGICAL ANALYSIS"
     
         st.subheader("Select Line Items")
     
