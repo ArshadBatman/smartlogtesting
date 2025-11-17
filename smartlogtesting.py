@@ -10,7 +10,7 @@ st.title("SMARTLog: Wireline Cost Estimator")
 # Step 1: Landing page with 3 options
 option = st.radio(
     "Select an operation:",
-    ("LOAD", "Wireline Cost Estimate", "Core Cost Estimate")
+    ("Logging Advisor", "Wireline Cost Estimate", "Core Cost Estimate")
 )
 
 # Step 2: Conditional workflow
@@ -648,8 +648,8 @@ if option == "Wireline Cost Estimate":
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
 
-elif option == "LOAD":
-    st.header("LOAD Module")
+elif option == "Logging Advisor":
+    st.header("Logging Advisor Module")
     st.info("LOAD functionality will be implemented here.")
     # Later, you can add your LOAD workflow
     
