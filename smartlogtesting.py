@@ -711,10 +711,47 @@ elif option == "Core Cost Estimate":
         # Show selected items and cost
         if selected_items:
             result_df = pd.DataFrame(selected_items)
-            result_df[col_total] = result_df[col_price] * result_df[col_qty]
+        
             st.subheader("Cost Estimate Summary")
-            st.dataframe(result_df[[col_a, col_b, col_c, col_price, col_qty, col_total]])
-            total_cost = result_df[col_total].sum()
-            st.markdown(f"### **Total Cost Estimate (MYR): {total_cost:,.2f}**")
+        
+            updated_qty_list = []
+            updated_total_list = []
+        
+            # Create editable table row-by-row
+            for i, row in result_df.iterrows():
+                col1, col2, col3, col4 = st.columns([2, 5, 2, 3])
+        
+                with col1:
+                    st.write(f"**{row[col_a]}-{row[col_b]}**")
+        
+                with col2:
+                    st.write(row[col_c])
+        
+                with col3:
+                    qty = st.number_input(
+                        "QTY",
+                        min_value=0,
+                        value=int(row[col_qty]) if not pd.isna(row[col_qty]) else 0,
+                        key=f"qty_{i}"
+                    )
+                    updated_qty_list.append(qty)
+        
+                with col4:
+                    total = qty * row[col_price]
+                    updated_total_list.append(total)
+                    st.write(f"**MYR {total:,.2f}**")
+        
+                st.markdown("---")
+        
+            # Update dataframe
+            result_df[col_qty] = updated_qty_list
+            result_df[col_total] = updated_total_list
+        
+            # Grand Total
+            grand_total = result_df[col_total].sum()
+        
+            st.markdown("## **Grand Cost Estimate (MYR)**")
+            st.markdown(f"### **{grand_total:,.2f}**")
+        
         else:
             st.info("Select at least one line item to generate cost estimate.")
