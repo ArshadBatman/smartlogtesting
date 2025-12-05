@@ -653,90 +653,81 @@ elif option == "Logging Advisor":
     st.info("LOAD functionality will be implemented here.")
     # Later, you can add your LOAD workflow
     # --------------------------------------------
-    # Advisory Rules (You can modify these anytime)
+    # Borehole Input
     # --------------------------------------------
+    st.subheader("Borehole Input")
 
-    log_tool_advisory_open = {
-        "PEX-RT": {
-            "Temp Limit": "150°C",
-            "Remarks": "High-temp Resistivity Tool. Ensure borehole condition is stable.",
-            "Recommended Pre-Job": [
-                "Verify telemetry",
-                "Check tool memory",
-                "Confirm hole size compatibility"
-            ],
-        },
-        "ECS-NMR": {
-            "Temp Limit": "150°C",
-            "Remarks": "Best used in clean formations; avoid irregular boreholes.",
-            "Recommended Pre-Job": [
-                "Review porosity expectations",
-                "Discuss acquisition time with engineer"
-            ],
-        },
-    }
+    well_type = st.selectbox("Well Type", ["Exploration", "Appraisal", "Development"])
+    hole_condition = st.selectbox("Open/Cased", ["Open", "Cased"])
 
-    log_tool_advisory_cased = {
-        "XLD": {
-            "Remarks": "Avoid in wells with unknown CCL response.",
-            "Recommended Pre-Job": [
-                "Perform drift test",
-                "Verify tubing size and deviation"
-            ],
-        }
-    }
+    # Hole Section
+    if hole_condition == "Open":
+        hole_section = st.selectbox('Hole Section (inch)', ['17.5"', '12.25"', '8.5"', '6"'])
+    else:
+        hole_section = st.selectbox('Hole Section (inch)', ['13.375"', '9.625"', '7"', '<4.5"'])
 
-    formation_remarks = {
-        "Sandstone": "Good response for resistivity and imaging tools.",
-        "Limestone": "Acoustic attenuation expected — adjust gains.",
-        "Shale": "Use NMR to differentiate bound vs free fluids.",
-    }
+    # Pressure & Temperature
+    pressure_td = st.selectbox("Pressure at TD (Psia)", [">15000 psia", "<15000 psia"])
+    temperature_td = st.selectbox("Temperature at TD (°C)", [">150 °C", "<150 °C"])
 
-    # --------------------------------------------
-    # UI – Choose Operation Type
-    # --------------------------------------------
+    # Mud & Formation
+    mud_type = st.selectbox("Mud Type", ["OBM", "Brine", "WBM"])
+    mud_weight = st.number_input("Mud Weight (ppg)", min_value=0.0, value=10.0)
+    formation_type = st.selectbox("Formation Type", ["Clastic", "Carbonate", "Basement"])
 
-    st.subheader("Step 1 — Select Logging Condition")
-    condition = st.selectbox(
-        "Is this an Open Hole or Cased Hole job?",
-        ["Open Hole", "Cased Hole"]
-    )
+    # Cased-specific inputs
+    if hole_condition == "Cased":
+        hydrocarbon_type = st.selectbox("Hydrocarbon Type", ["Oil", "Gas", "Mix"])
+        phase = st.selectbox("Phase", ["2", "3"])
+        flow_rate = st.selectbox("Flow Rate", ["<200 blpd", ">200 blpd"])
+        logging_type = st.selectbox("Logging Type", ["Production Logging", "Reservoir Monitoring", "Both"])
+
+    # Common inputs
+    dst_in_plan = st.selectbox("DST in Plan", ["Yes", "No"])
+    h2s = st.selectbox("H2S", ["Yes", "No"])
+    wl_contractor = st.selectbox("WL Contractor", ["SLB", "HLB"])
+
+    # Well Deviation
+    if hole_condition == "Open":
+        well_deviation = st.selectbox("Well Deviation", ["<50 deg", ">50 deg"])
+    else:
+        well_deviation = st.selectbox("Well Deviation", ["<30 deg", ">30 deg", "<60 deg", ">60 deg"])
+
+    st.markdown("---")
 
     # --------------------------------------------
-    # UI – Show Tools Based on Condition
+    # Display Results
     # --------------------------------------------
+    st.header(f"Results ({hole_condition} Hole)")
 
-    if condition == "Open Hole":
-        tools = list(log_tool_advisory_open.keys())
-        selected_tool = st.selectbox("Select Logging Tool", tools)
+    # Example advisory logic
+    if hole_condition == "Open":
+        st.subheader("Recommended Tools for Open Hole")
+        if mud_type == "OBM" and formation_type == "Clastic":
+            st.write("- PEX-RT Scanner")
+            st.write("- ECS-NMR")
+        else:
+            st.write("- ECS-NMR only")
 
-        data = log_tool_advisory_open[selected_tool]
+        st.subheader("Remarks")
+        if formation_type == "Clastic":
+            st.write("Good response for resistivity and imaging tools.")
+        elif formation_type == "Carbonate":
+            st.write("Acoustic attenuation expected — adjust gains.")
+        else:
+            st.write("Use NMR to differentiate bound vs free fluids.")
 
-        st.subheader(f"Advisory for {selected_tool}")
-        st.write("**Temperature Limit:**", data.get("Temp Limit", "-"))
-        st.write("**Remarks:**", data.get("Remarks", "-"))
-        st.write("**Recommended Pre-Job Steps:**")
-        for item in data.get("Recommended Pre-Job", []):
-            st.write(f"- {item}")
+    else:  # Cased
+        st.subheader("Recommended Tools for Cased Hole")
+        if flow_rate == ">200 blpd" and logging_type in ["Production Logging", "Both"]:
+            st.write("- XLD Production Logging Tool")
+        else:
+            st.write("- XLD Reservoir Monitoring Tool")
 
-    else:  # Cased Hole
-        tools = list(log_tool_advisory_cased.keys())
-        selected_tool = st.selectbox("Select Logging Tool", tools)
+        st.subheader("Remarks")
+        st.write("Check tubing size, deviation, and verify CCL response before logging.")
 
-        data = log_tool_advisory_cased[selected_tool]
-
-        st.subheader(f"Advisory for {selected_tool}")
-        st.write("**Remarks:**", data.get("Remarks", "-"))
-        st.write("**Recommended Pre-Job Steps:**")
-        for item in data.get("Recommended Pre-Job", []):
-            st.write(f"- {item}")
-
-    # --------------------------------------------
-    # Formation Remarks
-    # --------------------------------------------
-    st.subheader("Formation-Based Remarks")
-    formation = st.selectbox("Select Formation", list(formation_remarks.keys()))
-    st.write(formation_remarks[formation])
+   
 
     
 elif option == "Core Cost Estimate":
