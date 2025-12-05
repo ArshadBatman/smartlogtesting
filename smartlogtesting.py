@@ -652,6 +652,92 @@ elif option == "Logging Advisor":
     st.header("Logging Advisor Module")
     st.info("LOAD functionality will be implemented here.")
     # Later, you can add your LOAD workflow
+    # --------------------------------------------
+    # Advisory Rules (You can modify these anytime)
+    # --------------------------------------------
+
+    log_tool_advisory_open = {
+        "PEX-RT": {
+            "Temp Limit": "150°C",
+            "Remarks": "High-temp Resistivity Tool. Ensure borehole condition is stable.",
+            "Recommended Pre-Job": [
+                "Verify telemetry",
+                "Check tool memory",
+                "Confirm hole size compatibility"
+            ],
+        },
+        "ECS-NMR": {
+            "Temp Limit": "150°C",
+            "Remarks": "Best used in clean formations; avoid irregular boreholes.",
+            "Recommended Pre-Job": [
+                "Review porosity expectations",
+                "Discuss acquisition time with engineer"
+            ],
+        },
+    }
+
+    log_tool_advisory_cased = {
+        "XLD": {
+            "Remarks": "Avoid in wells with unknown CCL response.",
+            "Recommended Pre-Job": [
+                "Perform drift test",
+                "Verify tubing size and deviation"
+            ],
+        }
+    }
+
+    formation_remarks = {
+        "Sandstone": "Good response for resistivity and imaging tools.",
+        "Limestone": "Acoustic attenuation expected — adjust gains.",
+        "Shale": "Use NMR to differentiate bound vs free fluids.",
+    }
+
+    # --------------------------------------------
+    # UI – Choose Operation Type
+    # --------------------------------------------
+
+    st.subheader("Step 1 — Select Logging Condition")
+    condition = st.selectbox(
+        "Is this an Open Hole or Cased Hole job?",
+        ["Open Hole", "Cased Hole"]
+    )
+
+    # --------------------------------------------
+    # UI – Show Tools Based on Condition
+    # --------------------------------------------
+
+    if condition == "Open Hole":
+        tools = list(log_tool_advisory_open.keys())
+        selected_tool = st.selectbox("Select Logging Tool", tools)
+
+        data = log_tool_advisory_open[selected_tool]
+
+        st.subheader(f"Advisory for {selected_tool}")
+        st.write("**Temperature Limit:**", data.get("Temp Limit", "-"))
+        st.write("**Remarks:**", data.get("Remarks", "-"))
+        st.write("**Recommended Pre-Job Steps:**")
+        for item in data.get("Recommended Pre-Job", []):
+            st.write(f"- {item}")
+
+    else:  # Cased Hole
+        tools = list(log_tool_advisory_cased.keys())
+        selected_tool = st.selectbox("Select Logging Tool", tools)
+
+        data = log_tool_advisory_cased[selected_tool]
+
+        st.subheader(f"Advisory for {selected_tool}")
+        st.write("**Remarks:**", data.get("Remarks", "-"))
+        st.write("**Recommended Pre-Job Steps:**")
+        for item in data.get("Recommended Pre-Job", []):
+            st.write(f"- {item}")
+
+    # --------------------------------------------
+    # Formation Remarks
+    # --------------------------------------------
+    st.subheader("Formation-Based Remarks")
+    formation = st.selectbox("Select Formation", list(formation_remarks.keys()))
+    st.write(formation_remarks[formation])
+
     
 elif option == "Core Cost Estimate":
     st.header("Core Cost Estimate Module")
