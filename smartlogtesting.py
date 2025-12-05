@@ -652,125 +652,114 @@ elif option == "Logging Advisor":
     st.header("Logging Advisor Module")
     st.info("LOAD functionality will be implemented here.")
     # Later, you can add your LOAD workflow
+    # -----------------------------
     # Borehole Input
-    # --------------------------------------------
-    st.subheader("Borehole Input")
-
-    well_type_input = st.selectbox("Well Type", ["Exploration", "Appraisal", "Development"])
+    # -----------------------------
+    well_type = st.selectbox("Well Type", ["Exploration", "Appraisal", "Development"])
     hole_condition = st.selectbox("Open/Cased", ["Open", "Cased"])
 
-    # Hole Section
     if hole_condition == "Open":
-        hole_section_input = st.selectbox('Hole Section (inch)', ['17.5"', '12.25"', '8.5"', '6"'])
+        hole_section = st.selectbox('Hole Section (inch)', ['17.5"', '12.25"', '8.5"', '6"'])
     else:
-        hole_section_input = st.selectbox('Hole Section (inch)', ['13.375"', '9.625"', '7"', '<4.5"'])
+        hole_section = st.selectbox('Hole Section (inch)', ['13.375"', '9.625"', '7"', '<4.5"'])
 
-    # Pressure & Temperature
-    pressure_td_input = st.selectbox("Pressure at TD (Psia)", [">15000 psia", "<15000 psia"])
-    temperature_td_input = st.selectbox("Temperature at TD (°C)", [">150 °C", "<150 °C"])
+    pressure_td = st.selectbox("Pressure at TD (Psia)", [">15000 psia", "<15000 psia"])
+    temperature_td = st.selectbox("Temperature at TD (°C)", [">150 °C", "<150 °C"])
 
-    # Mud & Formation
-    mud_type_input = st.selectbox("Mud Type", ["OBM", "Brine", "WBM"])
-    mud_weight_input = st.number_input("Mud Weight (ppg)", min_value=0.0, value=10.0)
-    formation_type_input = st.selectbox("Formation Type", ["Clastic", "Carbonate", "Basement"])
+    mud_type = st.selectbox("Mud Type", ["OBM", "Brine", "WBM"])
+    mud_weight = st.number_input("Mud Weight (ppg)", min_value=0.0, value=10.0)
+    formation_type = st.selectbox("Formation Type", ["Clastic", "Carbonate", "Basement"])
 
-    # Cased-specific inputs
     if hole_condition == "Cased":
-        hydrocarbon_type_input = st.selectbox("Hydrocarbon Type", ["Oil", "Gas", "Mix"])
-        phase_input = st.selectbox("Phase", ["2", "3"])
-        flow_rate_input = st.selectbox("Flow Rate", ["<200 blpd", ">200 blpd"])
-        logging_type_input = st.selectbox("Logging Type", ["Production Logging", "Reservoir Monitoring", "Both"])
+        hydrocarbon_type = st.selectbox("Hydrocarbon Type", ["Oil", "Gas", "Mix"])
+        phase = st.selectbox("Phase", ["2", "3"])
+        flow_rate = st.selectbox("Flow Rate", ["<200 blpd", ">200 blpd"])
+        logging_type = st.selectbox("Logging Type", ["Production Logging", "Reservoir Monitoring", "Both"])
 
-    # Common inputs
-    dst_in_plan_input = st.selectbox("DST in Plan", ["Yes", "No"])
-    h2s_input = st.selectbox("H2S", ["Yes", "No"])
-    wl_contractor_input = st.selectbox("WL Contractor", ["SLB", "HLB"])
+    dst_in_plan = st.selectbox("DST in Plan", ["Yes", "No"])
+    h2s = st.selectbox("H2S", ["Yes", "No"])
+    wl_contractor = st.selectbox("WL Contractor", ["SLB", "HLB"])
 
-    # Well Deviation
     if hole_condition == "Open":
-        well_deviation_input = st.selectbox("Well Deviation", ["<50 deg", ">50 deg"])
+        well_deviation = st.selectbox("Well Deviation", ["<50 deg", ">50 deg"])
     else:
-        well_deviation_input = st.selectbox("Well Deviation", ["<30 deg", ">30 deg", "<60 deg", ">60 deg"])
+        well_deviation = st.selectbox("Well Deviation", ["<30 deg", ">30 deg", "<60 deg", ">60 deg"])
 
     st.markdown("---")
 
-    # --------------------------------------------
-    # Prepare input dictionary for evaluation
-    # --------------------------------------------
-    user_inputs = {
-        "well_type": well_type_input,
-        "hole_condition": hole_condition,
-        "hole_section": hole_section_input,
-        "pressure_td": pressure_td_input,
-        "temperature_td": temperature_td_input,
-        "mud_type": mud_type_input,
-        "mud_weight": mud_weight_input,
-        "formation_type": formation_type_input,
-        "dst_in_plan": dst_in_plan_input,
-        "h2s": h2s_input,
-        "wl_contractor": wl_contractor_input,
-        "well_deviation": well_deviation_input
+    # -----------------------------
+    # Open Hole Recommendations
+    # -----------------------------
+    open_recommendations = {
+        "Essential": [
+            "Resistivity/Density/Neutron/Caliper Logs /Gamma Ray (PEX)",
+            "Full Sonic. (DSI or Sonic Scanner)",
+            "Formation Imaging Log (if laminated formation is expected) (OBMI/FMI/Quanta Geo)",
+            "Wireline Formation Tester (for pressure tests and fluid sampling) (MDT – XL probe/Quick Silver)",
+            "Side Wall Samples (rotary sidewall samples as required) (XL Rock)",
+            "Check shot or Vertical Seismic Profile (as required) (VSP)"
+        ],
+        "Recommended": [
+            "Multi-component (Directional) Induction Resistivity Log (if laminations detected) – (Rt Scanner)",
+            "Straddle packer (if mini-DST or tight sand encountered) - (Straddle Packer / ORA / ORA DTT)"
+        ],
+        "Optional": [
+            "Dielectric Log (if the formation water is very fresh) – (Dielectric Scanner)",
+            "Nuclear Magnetic Resonance Log (as required) – (CMR/MR Scanner)"
+        ],
+        "H2S Notes": [
+            "Coated sample bottle need to be used" if h2s == "Yes" else "No special H2S handling required"
+        ]
     }
 
-    if hole_condition == "Cased":
-        user_inputs.update({
-            "hydrocarbon_type": hydrocarbon_type_input,
-            "phase": phase_input,
-            "flow_rate": flow_rate_input,
-            "logging_type": logging_type_input
-        })
+    # -----------------------------
+    # Cased Hole Recommendations
+    # -----------------------------
+    cased_recommendations = {
+        "Essential": ["CBL/VDL/Cement Image – (USIT-CBL)"],
+        "Recommended": ["PLT (if commingle tests)"]
+    }
 
-    # --------------------------------------------
-    # Define Open/Cased Cases (example, replace with your full list)
-    # --------------------------------------------
-    open_cases = [
-        {"name": "Open Case 1", "conditions": {"hole_condition": "Open", "hole_section": '17.5"'}},
-        {"name": "Open Case 2", "conditions": {"hole_condition": "Open", "mud_type": "OBM"}}
-        # Add all Open Cases here
+    # -----------------------------
+    # Remarks
+    # -----------------------------
+    remarks = [
+        "Logging & Tools Remarks: Please see Mud Type Remarks below",
+        "Logging Operation Remarks: Note: For carbonate reservoirs, the laterolog type of resistivity log is preferred because of its higher range of resistivity measurements. The Dielectric Log is recommended if the textural properties (m and n exponents) of the carbonate formation are unknown or variable.",
+        "A micro-resistivity log should be run together with the resistivity logs. In wells drilled with Oil Base Mud (OBM) or Synthetic Base Mud (SBM), the micro-resistivity cannot be run. LWD tools cannot record the micro-resistivity log.",
+        "Success Case: Observe HC in both e-logs response and gas peak response from mud gas and cuttings. PEX will be confirm run with high resolution.",
+        "Dry Case: Observe sand package but inconclusive HC presence",
+        "Thinly Laminated Beds: Gas Peak observed with high/lazy GR reading. Thomas-Stieber crossplot of GR & Den-Neu.",
+        "Full sonic acquisition includes monopole DT compressional, DT Shear, Dipole, Stonely and Cross Dipole",
+        "Pretest & Sampling as per PETRONAS PTG10.30.01 Guideline. Minimum Sampling requirement: HC samples per target: 2 Multi Phase, 1 Single Phase; Water samples per aquifer: 1 Multi phase; Mud sample: 450cc per target zone; Mud Filtrate: 10cc per target zone",
+        "Rotary Sidewall Core with extra large diameter (1.5” x 2.5”), to acquire SWC in both sands and shales. Rotary Sidewall Core in Dry Case is contingent on sand presence. Formation Imaging in Dry Case is contingent on sand presence.",
+        "CBL for Top of Cement evaluation will be acquired using cased hole service provider tool in CBL mode. If losses is cured, wireline logging will be optimized further according to the hole condition.",
+        "Logging Operation Remarks: In wells drilled with Oil Base Mud, an induction type of resistivity log and an oil base mud imaging log (or sonic imaging log) should be run. The Dielectric Log may be run if the formation water is very fresh. LWD tools cannot record the micro-resistivity log. The SP log cannot be recorded in wells drilled using OBM/SBM."
     ]
 
-    cased_cases = [
-        {"name": "Cased Case 1", "conditions": {"hole_condition": "Cased", "hydrocarbon_type": "Oil"}},
-        {"name": "Cased Case 2", "conditions": {"hole_condition": "Cased", "phase": "2"}}
-        # Add all Cased Cases here
-    ]
+    # -----------------------------
+    # Display in Tabs
+    # -----------------------------
+    tabs = st.tabs(["Open", "Cased", "Remarks"])
 
-    # --------------------------------------------
-    # Evaluation function
-    # --------------------------------------------
-    def evaluate_case(user_inputs, case):
-        for key, value in case["conditions"].items():
-            if user_inputs.get(key) != value:
-                return False
-        return True
+    with tabs[0]:
+        st.header("Open Hole Recommendations")
+        for section, items in open_recommendations.items():
+            st.subheader(section)
+            for item in items:
+                st.write(f"- {item}")
 
-    # --------------------------------------------
-    # Evaluate Open/Cased Cases
-    # --------------------------------------------
-    open_case_results = [case["name"] for case in open_cases if evaluate_case(user_inputs, case)]
-    cased_case_results = [case["name"] for case in cased_cases if evaluate_case(user_inputs, case)]
+    with tabs[1]:
+        st.header("Cased Hole Recommendations")
+        for section, items in cased_recommendations.items():
+            st.subheader(section)
+            for item in items:
+                st.write(f"- {item}")
 
-    # --------------------------------------------
-    # Display Results
-    # --------------------------------------------
-    st.header(f"Results ({hole_condition} Hole)")
-
-    if hole_condition == "Open":
-        st.subheader("✅ Open Cases")
-        if open_case_results:
-            for oc in open_case_results:
-                st.write(oc)
-        else:
-            st.write("No Open Case matched.")
-    else:
-        st.subheader("✅ Cased Cases")
-        if cased_case_results:
-            for cc in cased_case_results:
-                st.write(cc)
-        else:
-            st.write("No Cased Case matched.")
-
-   
+    with tabs[2]:
+        st.header("Remarks")
+        for note in remarks:
+            st.write(f"- {note}")
 
     
 elif option == "Core Cost Estimate":
